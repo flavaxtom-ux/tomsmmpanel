@@ -17,22 +17,26 @@ body::before{content:"";position:fixed;top:50%;left:50%;transform:translate(-50%
 .bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:none;justify-content:space-around;padding:8px 0;z-index:1000;border-top:2px solid var(--p)}
 .nav-btn{color:#888;text-align:center;font-size:10px;flex:1;cursor:pointer}
 .nav-btn.active{color:var(--p);font-weight:700}
+.tg-float{position:fixed;bottom:70px;right:15px;background:#0088cc;color:#fff;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:2000;text-decoration:none}
 .btn-primary{background:var(--p);color:#fff;border:none;padding:10px;border-radius:8px;width:100%;cursor:pointer;font-weight:600}
 input,select,textarea{width:100%;padding:10px;margin:5px 0;border:1px solid #ffccaa;border-radius:8px;outline:none;box-sizing:border-box;font-family:inherit}
 table{width:100%;border-collapse:collapse}
 th,td{padding:10px;text-align:left;border-bottom:1px solid #fff0e6;font-size:11px}
 .news-bar{background:#fff5ed;border:1px solid #f60;padding:10px;border-radius:10px;margin-bottom:15px;color:#f60;font-weight:600;font-size:12px}
-.desc-box{background:#f9f9f9;padding:10px;border-radius:8px;font-size:11px;margin-top:5px;border-left:4px solid #f60}
 @media (max-width:768px){.sidebar{display:none}.bottom-nav{display:flex}.main-content{margin-left:0}}
 </style>
 </head>
 <body>
+<b:section id="main" showaddelement="yes"/>
+<a class="tg-float hidden" href="https://t.me/t0m_00o" id="tgBtn" target="_blank">💬</a>
+
 <div id="authPage" style="display:flex;justify-content:center;align-items:center;height:100vh;padding:20px">
 <div class="card" style="width:100%;max-width:340px;text-align:center;border-top:5px solid #f60">
 <h2 style="color:#f60;margin:0">TOM SMM ✅</h2><p style="font-size:11px;color:#f60;font-weight:700">150+ trusted panel 💖</p>
 <div id="loginFields"><input id="lU" placeholder="👤 User/Email"/><input id="lP" placeholder="🔑 Pass" type="password"/><button class="btn-primary" onclick="handleLogin()">Login 🚀</button><p style="font-size:10px;margin-top:10px">No account? <a href="#" onclick="toggleAuth(false)">Signup ✨</a></p></div>
 <div id="signupFields" class="hidden"><input id="rU" placeholder="👤 Username"/><input id="rE" placeholder="📧 Email"/><input id="rP" placeholder="🔑 Pass" type="password"/><button class="btn-primary" onclick="handleSignup()">Signup ✨</button><p style="font-size:10px;margin-top:10px">Have account? <a href="#" onclick="toggleAuth(true)">Login 🚀</a></p></div>
 </div></div>
+
 <div class="hidden" id="mainApp">
 <div class="sidebar"><h3 style="color:#f60">TOM SMM ✅</h3>
 <div class="nav-item active" onclick="switchPage('neworder')">🛒 Order</div>
@@ -47,21 +51,20 @@ th,td{padding:10px;text-align:left;border-bottom:1px solid #fff0e6;font-size:11p
 <div><p style="margin:0;font-size:10px">Balance 💰</p><h2 id="userBalance" style="margin:0">₹ 0.00</h2></div>
 <div style="text-align:right"><p id="userEmailLabel" style="margin:0;font-size:10px"></p><b id="userRoleLabel" style="font-size:10px">USER</b></div></div>
 <div class="page" id="page_neworder"><div class="card"><h3>🛒 New Order</h3>
-<select id="catSelect" onchange="filterServices()"><option value="">Category 📂</option></select>
-<select id="serviceSelect" onchange="updateLimits()"><option value="">Service 🚀</option></select>
-<div id="serviceDesc" class="desc-box hidden"></div>
-<div id="limitDisplay" style="font-size:10px;color:#f60;margin:5px 0">Min: 0 | Max: 0</div>
+<select id="catSelect" onchange="filterServices()"><option value="">Category</option></select>
+<select id="serviceSelect" onchange="updateLimits()"><option value="">Service</option></select>
+<div id="limitDisplay" style="font-size:10px;color:#f60;margin-bottom:5px">Min: 0 | Max: 0</div>
 <input id="orderLink" placeholder="Link 🔗"/><input id="orderQty" oninput="calcPrice()" placeholder="Qty 🔢" type="number"/>
 <div style="text-align:center;padding:10px;background:#fff5ed;border-radius:8px;margin:10px 0;border:1px dashed #f60">Total: <b id="totalPrice" style="color:#f60">₹ 0.00</b></div>
 <button class="btn-primary" onclick="placeOrder()">Submit Order 🚀</button></div>
-<div class="card"><h4>🔗 Referral Link</h4><p style="font-size:10px">Share & earn bonus!</p><input id="refLink" readonly onclick="this.select();document.execCommand('copy');Swal.fire('Copied','Link copied','success')"/></div>
+<div class="card"><h4>🔗 Referral Program</h4><p style="font-size:10px">Get 5% bonus on friend's deposit!</p><input id="refLink" readonly onclick="this.select();document.execCommand('copy');Swal.fire('Copied','Link copied','success')"/></div>
 </div>
 <div class="page hidden" id="page_admin">
 <div id="ownerOnly" class="hidden">
-<div class="card"><h3>📢 Update News</h3><input id="newsInput" placeholder="Enter news message"/><button class="btn-primary" onclick="updateNews()">Update News</button></div>
-<div class="card"><h3>🛠 Add Service</h3><input id="s_cat" placeholder="📂 Cat"/><input id="s_name" placeholder="🚀 Name"/><input id="s_api" placeholder="🆔 API ID"/><input id="s_price" placeholder="Price"/><input id="s_base" placeholder="Base"/><textarea id="s_desc" placeholder="Description (Speed, Refill, etc.)"></textarea><div style="display:flex;gap:5px"><input id="s_min" placeholder="Min"/><input id="s_max" placeholder="Max"/></div><button class="btn-primary" onclick="addService()">Add ✅</button></div>
-<div class="card"><h3>📦 All Orders</h3><div style="overflow-x:auto"><table><tbody id="adminOrderList"></tbody></table></div></div>
-<div class="card"><h3>🛠 Services</h3><div style="overflow-x:auto"><table><tbody id="adminServiceList"></tbody></table></div></div>
+<div class="card"><h3>📢 Update News</h3><input id="newsInput" placeholder="Enter news"/><button class="btn-primary" onclick="updateNews()">Update</button></div>
+<div class="card"><h3>🛠 Add Service</h3><input id="s_cat" placeholder="Cat"/><input id="s_name" placeholder="Name"/><input id="s_api" placeholder="API ID"/><input id="s_price" placeholder="Price"/><input id="s_base" placeholder="Base"/><div style="display:flex;gap:5px"><input id="s_min" placeholder="Min"/><input id="s_max" placeholder="Max"/></div><button class="btn-primary" onclick="addService()">Add</button></div>
+<div class="card"><h3>📦 Orders</h3><div style="overflow-x:auto"><table><tbody id="adminOrderList"></tbody></table></div></div>
+<div class="card"><h3>👥 Referrals</h3><div style="overflow-x:auto"><table><thead><tr><th>User</th><th>Referred By</th></tr></thead><tbody id="adminRefList"></tbody></table></div></div>
 </div>
 <div class="card"><h3>👥 Users</h3><div style="overflow-x:auto"><table><tbody id="adminUserList"></tbody></table></div></div>
 <div class="card"><h3>💳 Payments</h3><div style="overflow-x:auto"><table><tbody id="adminPayList"></tbody></table></div></div>
@@ -85,32 +88,45 @@ let allS=[],myRole='user';
 const getI=(n)=>{n=n.toLowerCase();return n.includes('fb')||n.includes('facebook')?'🔵 ':n.includes('ig')||n.includes('insta')?'📸 ':n.includes('yt')||n.includes('youtube')?'🔴 ':n.includes('tg')||n.includes('tele')?'💎 ':'📁 '};
 function toggleAuth(l){document.getElementById('loginFields').classList.toggle('hidden',!l);document.getElementById('signupFields').classList.toggle('hidden',l)}
 async function handleLogin(){const u=document.getElementById('lU').value,p=document.getElementById('lP').value;if(!u||!p)return Swal.fire('Error','Fill details','error');let e=u;if(!u.includes('@')){const s=await db.ref('usernames/'+u).once('value');if(!s.exists())return Swal.fire('Error','User not found','error');e=s.val()}auth.signInWithEmailAndPassword(e,p).catch(err=>Swal.fire('Error',err.message,'error'))}
-async function handleSignup(){const u=document.getElementById('rU').value,e=document.getElementById('rE').value,p=document.getElementById('rP').value;if(!u||!e||!p)return Swal.fire('Error','Fill all','error');const s=await db.ref('usernames/'+u).once('value');if(s.exists())return Swal.fire('Error','Taken','error');auth.createUserWithEmailAndPassword(e,p).then(r=>{db.ref('usernames/'+u).set(e);db.ref('users/'+r.user.uid).set({email:e,username:u,balance:0,role:'user'})}).catch(err=>Swal.fire('Error',err.message,'error'))}
+async function handleSignup(){
+    const u=document.getElementById('rU').value,e=document.getElementById('rE').value,p=document.getElementById('rP').value;
+    if(!u||!e||!p)return Swal.fire('Error','Fill all','error');
+    const s=await db.ref('usernames/'+u).once('value');if(s.exists())return Swal.fire('Error','Taken','error');
+    const urlParams = new URLSearchParams(window.location.search);
+    const ref = urlParams.get('ref') || 'none';
+    auth.createUserWithEmailAndPassword(e,p).then(r=>{
+        db.ref('usernames/'+u).set(e);
+        db.ref('users/'+r.user.uid).set({email:e,username:u,balance:0,role:'user',referredBy:ref});
+    }).catch(err=>Swal.fire('Error',err.message,'error'))
+}
 function switchPage(p){document.querySelectorAll('.page').forEach(e=>e.classList.add('hidden'));document.getElementById('page_'+p).classList.remove('hidden')}
 function logout(){auth.signOut().then(()=>location.reload())}
 function updateQR(){const m=document.getElementById('payMethod').value;const upi=m==='m1'?'8849431174@fam':'9005033142-2@ibl';const tg=m==='m1'?'@t0m_00o':'@Arrowaayush';document.getElementById('qrImg').src=`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=${upi}%26pn=TOM%20SMM%26cu=INR`;document.getElementById('upiIdText').innerHTML=`UPI: <b>${upi}</b>`;document.getElementById('tgLink').href=`https://t.me/${tg.replace('@','')}`;document.getElementById('tgLink').innerText=`Send screenshot to ${tg} ✅`}
-auth.onAuthStateChanged(u=>{if(u){document.getElementById('authPage').classList.add('hidden');document.getElementById('mainApp').classList.remove('hidden');updateQR();document.getElementById('refLink').value=`${window.location.origin}${window.location.pathname}?ref=${u.uid}`;
+auth.onAuthStateChanged(u=>{if(u){document.getElementById('authPage').classList.add('hidden');document.getElementById('mainApp').classList.remove('hidden');document.getElementById('tgBtn').classList.remove('hidden');updateQR();
+document.getElementById('refLink').value=`${window.location.origin}${window.location.pathname}?ref=${u.uid}`;
 db.ref('news').on('value',s=>{if(s.exists()){document.getElementById('newsDisplay').innerText=`📢 ${s.val()}`;document.getElementById('newsDisplay').classList.remove('hidden')}});
-let dU=u.email;if(u.email==='kreypatel376@gmail.com'){dU="tom_000";myRole='owner';db.ref('users/'+u.uid+'/role').set('owner');document.querySelectorAll('.admin-only').forEach(e=>e.classList.remove('hidden'));document.getElementById('ownerOnly').classList.remove('hidden');document.getElementById('userRoleLabel').innerText="OWNER";}
+let dU=u.email;if(u.email==='kreypatel376@gmail.com'){dU="tom_000";myRole='owner';db.ref('users/'+u.uid+'/role').set('owner');document.querySelectorAll('.admin-only').forEach(e=>e.classList.remove('hidden'));document.getElementById('ownerOnly').classList.remove('hidden');document.getElementById('userRoleLabel').innerText="OWNER";
+db.ref('users').on('value',s=>{let h='';s.forEach(c=>{const v=c.val();let btn='';if(myRole==='owner'||(myRole==='admin'&&v.email!==u.email))btn=`<button onclick="editB('${c.key}')">₹</button>`;if(myRole==='owner')btn+=`<button onclick="setRole('${c.key}','admin')">AD</button><button onclick="setRole('${c.key}','user')">US</button>`;h+=`<tr><td>${v.email}</td><td>₹${v.balance}</td><td>${btn}</td></tr>`});document.getElementById('adminUserList').innerHTML=h;
+let rh='';s.forEach(c=>{const v=c.val();if(v.referredBy &amp;&amp; v.referredBy!=='none')rh+=`<tr><td>${v.email}</td><td>${v.referredBy}</td></tr>`});document.getElementById('adminRefList').innerHTML=rh;});
+db.ref('all_orders').on('value',s=>{let h='';s.forEach(c=>{const o=c.val();h+='<tr><td>'+o.user+'</td><td>'+o.service+'<br/><a href="'+o.link+'" target="_blank">Link</a></td><td><button onclick="pushAPI(\''+c.key+'\')">Push</button></td></tr>'});document.getElementById('adminOrderList').innerHTML=h});
+db.ref('services').on('value',s=>{let h='';s.forEach(c=>{const v=c.val();h+='<tr><td>'+v.name+'</td><td>₹'+v.price+'</td><td><button onclick="editS(\''+c.key+'\')">E</button><button onclick="delS(\''+c.key+'\')">X</button></td></tr>'});document.getElementById('adminServiceList').innerHTML=h});
+db.ref('payments').on('value',s=>{let h='';s.forEach(c=>{const p=c.val();h+='<tr><td>'+p.email+'</td><td>₹'+p.amount+'</td><td><button onclick="approveP(\''+c.key+'\',\''+p.uid+'\','+p.amount+')">OK</button></td></tr>'});document.getElementById('adminPayList').innerHTML=h});}
 db.ref('users/'+u.uid).on('value',s=>{const d=s.val();if(d){if(d.role==='admin'){myRole='admin';document.querySelectorAll('.admin-only').forEach(e=>e.classList.remove('hidden'));document.getElementById('userRoleLabel').innerText="ADMIN"}document.getElementById('userBalance').innerText='₹ '+d.balance.toFixed(2);document.getElementById('userEmailLabel').innerText=dU}});
-db.ref('users').on('value',s=>{let h='';s.forEach(c=>{const v=c.val();let btn='';if(myRole==='owner'||(myRole==='admin'&&v.email!==u.email))btn=`<button onclick="editB('${c.key}')">₹</button>`;if(myRole==='owner')btn+=`<button onclick="setRole('${c.key}','admin')">AD</button><button onclick="setRole('${c.key}','user')">US</button>`;h+=`<tr><td>${v.email}</td><td>₹${v.balance}</td><td>${btn}</td></tr>`});document.getElementById('adminUserList').innerHTML=h});
-db.ref('all_orders').on('value',s=>{let h='';s.forEach(c=>{const o=c.val();h+=`<tr><td>${o.user}</td><td>${o.service}<br/><a href="${o.link}" target="_blank">Link</a></td><td><button onclick="pushAPI('${c.key}')">Push</button></td></tr>`});document.getElementById('adminOrderList').innerHTML=h});
-db.ref('services').on('value',s=>{let h='';s.forEach(c=>{const v=c.val();h+=`<tr><td>${v.name}</td><td><button onclick="editS('${c.key}')">E</button><button onclick="delS('${c.key}')">X</button></td></tr>`});document.getElementById('adminServiceList').innerHTML=h});
-db.ref('payments').on('value',s=>{let h='';s.forEach(c=>{const p=c.val();h+=`<tr><td>${p.email}</td><td>₹${p.amount}</td><td><button onclick="approveP('${c.key}','${p.uid}',${p.amount})">OK</button></td></tr>`});document.getElementById('adminPayList').innerHTML=h});
 db.ref('services').on('value',s=>{allS=[];let cats=new Set();s.forEach(c=>{const v=c.val();v.key=c.key;allS.push(v);cats.add(v.cat)});let h='<option value="">Category</option>';cats.forEach(cat=>{h+=`<option value="${cat}">${getI(cat)}${cat}</option>`});document.getElementById('catSelect').innerHTML=h});
 db.ref('user_orders/'+u.uid).on('value',s=>{let h='';s.forEach(c=>{const o=c.val();h+='<tr><td>'+o.service+'</td><td><a href="'+o.link+'" target="_blank" style="color:#f60">Link</a></td><td>'+o.status+'</td></tr>'});document.getElementById('historyBody').innerHTML=h})}else{document.getElementById('authPage').classList.remove('hidden')}});
-function updateNews(){const n=document.getElementById('newsInput').value;if(n)db.ref('news').set(n).then(()=>Swal.fire('Success','News Updated','success'))}
-function filterServices(){const cat=document.getElementById('catSelect').value;let h='<option value="">Service</option>';allS.filter(s=>s.cat===cat).forEach(s=>{h+=`<option data-desc="${s.desc||''}" data-min="${s.min}" data-max="${s.max}" data-base="${s.base}" data-api="${s.serviceID}" value="${s.price}">${s.name} - ₹${s.price}</option>`});document.getElementById('serviceSelect').innerHTML=h}
-function updateLimits(){const s=document.getElementById('serviceSelect'),m=s.options[s.selectedIndex].getAttribute('data-min')||0,x=s.options[s.selectedIndex].getAttribute('data-max')||0,d=s.options[s.selectedIndex].getAttribute('data-desc')||'No description';document.getElementById('limitDisplay').innerText='Min: '+m+' | Max: '+x;document.getElementById('serviceDesc').innerText=d;document.getElementById('serviceDesc').classList.remove('hidden');calcPrice()}
-function editS(k){db.ref('services/'+k).once('value',s=>{const v=s.val();const c=prompt("Cat:",v.cat),n=prompt("Name:",v.name),p=prompt("Price:",v.price),b=prompt("Base:",v.base),mi=prompt("Min:",v.min),ma=prompt("Max:",v.max),ai=prompt("API ID:",v.serviceID),ds=prompt("Desc:",v.desc);if(n)db.ref('services/'+k).update({cat:c,name:n,price:p,base:b,min:mi,max:ma,serviceID:ai,desc:ds})})}
+function updateNews(){const n=document.getElementById('newsInput').value;if(n)db.ref('news').set(n).then(()=>Swal.fire('OK','Updated','success'))}
+function setRole(k,r){if(myRole==='owner')db.ref('users/'+k+'/role').set(r).then(()=>Swal.fire('OK','Updated','success'))}
+function editS(k){db.ref('services/'+k).once('value',s=>{const v=s.val();const c=prompt("Cat:",v.cat),n=prompt("Name:",v.name),p=prompt("Price:",v.price),b=prompt("Base:",v.base),mi=prompt("Min:",v.min),ma=prompt("Max:",v.max),ai=prompt("API ID:",v.serviceID);if(n)db.ref('services/'+k).update({cat:c,name:n,price:p,base:b,min:mi,max:ma,serviceID:ai})})}
 function delS(k){if(confirm("Delete?"))db.ref('services/'+k).remove()}
-function submitPayment(){const m=document.getElementById('payMethod').value,a=document.getElementById('payAmount').value,u=document.getElementById('payUTR').value,min=m==='m1'?10:5;if(a>=min && u.length===12){db.ref('payments').push({uid:auth.currentUser.uid,email:auth.currentUser.email,amount:a,utr:u,method:m});Swal.fire('OK','Submitted','success')}else alert("Error")}
+function updateLimits(){const s=document.getElementById('serviceSelect'),m=s.options[s.selectedIndex].getAttribute('data-min')||0,x=s.options[s.selectedIndex].getAttribute('data-max')||0;document.getElementById('limitDisplay').innerText='Min: '+m+' | Max: '+x;calcPrice()}
+function submitPayment(){const m=document.getElementById('payMethod').value,a=document.getElementById('payAmount').value,u=document.getElementById('payUTR').value,min=m==='m1'?10:5;if(a>=min &amp;&amp; u.length===12){db.ref('payments').push({uid:auth.currentUser.uid,email:auth.currentUser.email,amount:a,utr:u,method:m});Swal.fire('OK','Submitted','success')}else alert("Error")}
 function approveP(k,u,a){db.ref('users/'+u+'/balance').transaction(b=>(b||0)+parseFloat(a));db.ref('payments/'+k).remove();alert("Added")}
-function addService(){const c=document.getElementById('s_cat').value,n=document.getElementById('s_name').value,p=document.getElementById('s_price').value,b=document.getElementById('s_base').value,m=document.getElementById('s_min').value,x=document.getElementById('s_max').value,ai=document.getElementById('s_api').value,ds=document.getElementById('s_desc').value;if(n)db.ref('services').push({cat:c,name:n,price:p,base:b,min:m,max:x,serviceID:ai,desc:ds})}
+function addService(){const c=document.getElementById('s_cat').value,n=document.getElementById('s_name').value,p=document.getElementById('s_price').value,b=document.getElementById('s_base').value,m=document.getElementById('s_min').value,x=document.getElementById('s_max').value,ai=document.getElementById('s_api').value;if(n)db.ref('services').push({cat:c,name:n,price:p,base:b,min:m,max:x,serviceID:ai})}
 function editB(u){const a=prompt("Amount:");if(a)db.ref('users/'+u+'/balance').transaction(b=>(b||0)+parseFloat(a))}
 function calcPrice(){const s=document.getElementById('serviceSelect'),r=parseFloat(s.value),b=parseFloat(s.options[s.selectedIndex].getAttribute('data-base')),q=parseFloat(document.getElementById('orderQty').value)||0;document.getElementById('totalPrice').innerText='₹ '+((r/b)*q).toFixed(2)}
-function placeOrder(){const s=document.getElementById('serviceSelect'),q=parseFloat(document.getElementById('orderQty').value),l=document.getElementById('orderLink').value,t=parseFloat(document.getElementById('totalPrice').innerText.replace('₹ ','')),u=auth.currentUser,m=parseFloat(s.options[s.selectedIndex].getAttribute('data-min')),x=parseFloat(s.options[s.selectedIndex].getAttribute('data-max')),ai=s.options[s.selectedIndex].getAttribute('data-api');if(!l||q<m||q>x)return alert("Error");db.ref('users/'+u.uid+'/balance').once('value',s=>{const b=s.val()||0;if(b>=t){db.ref('users/'+u.uid+'/balance').set(b-t);const r=db.ref('all_orders').push(),k=r.key,o={uid:u.uid,user:u.email,service:document.getElementById('serviceSelect').options[document.getElementById('serviceSelect').selectedIndex].text,qty:q,link:l,price:t,status:'Pending',apiID:ai};r.set(o);db.ref('user_orders/'+u.uid+'/'+k).set(o);Swal.fire('OK','Order Placed','success')}else alert("Low Balance")})}
+function placeOrder(){const s=document.getElementById('serviceSelect'),q=parseFloat(document.getElementById('orderQty').value),l=document.getElementById('orderLink').value,t=parseFloat(document.getElementById('totalPrice').innerText.replace('₹ ','')),u=auth.currentUser,m=parseFloat(s.options[s.selectedIndex].getAttribute('data-min')),x=parseFloat(s.options[s.selectedIndex].getAttribute('data-max')),ai=s.options[s.selectedIndex].getAttribute('data-api');if(!l||q&lt;m||q&gt;x)return alert("Error");db.ref('users/'+u.uid+'/balance').once('value',s=>{const b=s.val()||0;if(b>=t){db.ref('users/'+u.uid+'/balance').set(b-t);const r=db.ref('all_orders').push(),k=r.key,o={uid:u.uid,user:u.email,service:document.getElementById('serviceSelect').options[document.getElementById('serviceSelect').selectedIndex].text,qty:q,link:l,price:t,status:'Pending',apiID:ai};r.set(o);db.ref('user_orders/'+u.uid+'/'+k).set(o);Swal.fire('OK','Order Placed','success')}else alert("Low Balance")})}
 async function pushAPI(k){const s=await db.ref('all_orders/'+k).once('value'),o=s.val();const p=new URLSearchParams({key:API_KEY,action:'add',service:o.apiID,link:o.link,quantity:o.qty});try{const r=await fetch(API_URL,{method:'POST',body:p}),d=await r.json();if(d.order){db.ref('all_orders/'+k+'/status').set('Processing');alert("Pushed!")}else alert(d.error)}catch(e){alert("CORS Error")}}
+function filterServices(){const cat=document.getElementById('catSelect').value;let h='<option value="">Service</option>';allS.filter(s=>s.cat===cat).forEach(s=>{h+=`<option data-min="${s.min}" data-max="${s.max}" data-base="${s.base}" data-api="${s.serviceID}" value="${s.price}">${s.name} - ₹${s.price}</option>`});document.getElementById('serviceSelect').innerHTML=h}
 </script>
 </body>
 </html>
