@@ -1,34 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>TOM SMM PANEL - ✅ Professional</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>TOM SMM PANEL - ✅ Trusted</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <style>
-:root{--p:#ff6600;--bg:#f4f7f6;--s:#ffffff;--text:#333;--success:#22c55e;--danger:#ef4444;--card:#fff}
-[data-theme='dark'] {--bg:#121212;--s:#1e1e1e;--text:#eee;--card:#252525}
-body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);margin:0;padding:0;overflow-x:hidden;transition:0.3s}
-body::before{content:"";position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:250px;height:250px;background:url('https://cdn-icons-png.flaticon.com/512/620/620851.png') no-repeat center;background-size:contain;opacity:0.04;z-index:-1;pointer-events:none}
+:root{--p:#ff6600;--bg:#f4f7f6;--s:#ffffff;--text:#333;--success:#22c55e;--danger:#ef4444}
+body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);margin:0;padding:0;overflow-x:hidden}
 .hidden{display:none!important}
-/* SIDEBAR */
-.sidebar{width:270px;background:var(--s);height:100vh;position:fixed;top:0;left:-300px;padding:20px;z-index:3000;transition:0.3s;border-right:2px solid var(--p);display:flex;flex-direction:column;box-shadow:5px 0 15px rgba(0,0,0,0.1)}
+/* SIDEBAR SYSTEM */
+.sidebar{width:270px;background:var(--s);height:100vh;position:fixed;top:0;left:-300px;padding:20px;z-index:3000;transition:0.3s;border-right:3px solid var(--p);display:flex;flex-direction:column;box-shadow:5px 0 15px rgba(0,0,0,0.1)}
 .sidebar.active{left:0}
 .sidebar-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:2500;display:none}
 .sidebar-overlay.active{display:block}
 .main-content{padding:20px;transition:0.3s}
-.nav-item{padding:12px;cursor:pointer;border-radius:10px;margin-bottom:8px;display:flex;align-items:center;text-decoration:none;color:var(--text);font-size:13px;font-weight:500}
+.nav-item{padding:12px;cursor:pointer;border-radius:10px;margin-bottom:8px;display:flex;align-items:center;text-decoration:none;color:var(--text);font-size:14px;font-weight:500}
 .nav-item:hover,.nav-item.active{background:var(--p);color:#fff}
-.mobile-header{background:var(--s);padding:15px;border-bottom:1px solid #ddd;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000}
+.mobile-header{background:#fff;padding:15px;border-bottom:1px solid #ddd;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000}
 /* UI */
-.card{background:var(--card);padding:20px;border-radius:15px;box-shadow:0 4px 15px rgba(0,0,0,0.05);margin-bottom:20px;border:1px solid #ffe0cc}
-.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:20px}
-.stat-box{background:var(--p);color:#fff;padding:15px;border-radius:12px;text-align:center}
+.card{background:#fff;padding:20px;border-radius:15px;box-shadow:0 4px 15px rgba(0,0,0,0.05);margin-bottom:20px;border:1px solid #ffe0cc}
 .btn-primary{background:var(--p);color:#fff;border:none;padding:12px;border-radius:10px;width:100%;cursor:pointer;font-weight:600}
-.btn-success{background:var(--success)!important;color:#fff!important;padding:6px 10px;border-radius:6px;border:none;cursor:pointer;font-size:10px}
-input,select,textarea{width:100%;padding:12px;margin:8px 0;border:1px solid #ffccaa;border-radius:10px;outline:none;box-sizing:border-box;background:var(--card);color:var(--text)}
+.btn-success{background:var(--success)!important;color:#fff!important;padding:6px 10px;border-radius:6px;border:none;cursor:pointer;font-size:11px}
+.btn-danger{background:var(--danger)!important;color:#fff!important;padding:6px 10px;border-radius:6px;border:none;cursor:pointer;font-size:11px}
+input,select,textarea{width:100%;padding:12px;margin:8px 0;border:1px solid #ffccaa;border-radius:10px;outline:none;box-sizing:border-box}
 table{width:100%;border-collapse:collapse}
-th,td{padding:12px;text-align:left;border-bottom:1px solid #eee;font-size:11px}
-.news-bar{background:#fff5ed;border:1px solid #f60;padding:10px;border-radius:10px;margin-bottom:15px;color:#f60;font-weight:600;font-size:12px}
+th,td{padding:12px;text-align:left;border-bottom:1px solid #f1f5f9;font-size:12px;word-break:break-word}
+th{background:#fff9f5;color:var(--p);font-weight:600}
+.news-bar{background:#fff5ed;border:1px solid #f60;padding:12px;border-radius:12px;margin-bottom:20px;color:#f60;font-weight:600;font-size:13px;animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,102,0,0.4)}70%{box-shadow:0 0 0 10px rgba(255,102,0,0)}100%{box-shadow:0 0 0 0 rgba(255,102,0,0)}}
 @media (max-width:768px){ .main-content{padding:15px} }
 </style>
 </head>
@@ -36,93 +35,79 @@ th,td{padding:12px;text-align:left;border-bottom:1px solid #eee;font-size:11px}
 <div id="sidebarOverlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
 <div id="authPage" style="display:flex;justify-content:center;align-items:center;height:100vh;padding:20px">
 <div class="card" style="width:100%;max-width:380px;text-align:center;border-top:5px solid #f60">
-<h2 style="color:#f60;margin:0">TOM SMM ✅</h2><p style="font-size:11px;color:#f60;font-weight:700">150+ trusted panel 💖</p>
+<h2 style="color:#f60;margin:0">TOM SMM PANEL ✅</h2><p style="font-size:11px;color:#f60;font-weight:700">150+ trusted panel 💖</p>
 <div id="loginFields"><input id="lU" placeholder="👤 Username or Email"/><input id="lP" placeholder="🔑 Pass" type="password"/><button class="btn-primary" onclick="hL()">Login 🚀</button><p style="font-size:10px;margin-top:15px">No account? <a href="javascript:void(0)" onclick="tA(false)" style="color:#f60;font-weight:bold">Signup ✨</a></p></div>
 <div id="signupFields" class="hidden"><input id="rU" placeholder="👤 Username"/><input id="rE" placeholder="📧 Email"/><input id="rP" placeholder="🔑 Pass" type="password"/><button class="btn-primary" onclick="hS()">Signup ✨</button><p style="font-size:10px;margin-top:10px">Have account? <a href="javascript:void(0)" onclick="tA(true)" style="color:#f60;font-weight:bold">Login 🚀</a></p></div>
 </div></div>
-
 <div class="hidden" id="mainApp">
-    <div id="mobHead" class="mobile-header"><b style="color:var(--p)">TOM SMM ✅</b><button onclick="toggleSidebar()" style="background:var(--p);color:#fff;border:none;padding:8px 15px;border-radius:8px;font-weight:bold">MENU ☰</button></div>
+    <div id="mobHead" class="mobile-header"><b style="color:#f60">TOM SMM ✅</b><button onclick="toggleSidebar()" style="background:#f60;color:#fff;border:none;padding:8px 15px;border-radius:8px">MENU ☰</button></div>
     <div class="sidebar" id="sidebar">
         <h2 style="color:#f60">TOM SMM ✅</h2>
         <div class="nav-item active" onclick="sP('neworder')">🛒 New Order</div>
         <div class="nav-item" onclick="sP('history')">📜 My Orders</div>
         <div class="nav-item" onclick="sP('refill')">♻️ Refill</div>
-        <div class="nav-item" onclick="sP('support')">🎫 Support</div>
         <div class="nav-item" onclick="sP('funds')">💰 Add Funds</div>
-        <div class="nav-item" onclick="toggleTheme()">🌓 Dark/Light</div>
         <a class="nav-item" href="https://t.me/tomsmmmpanel" target="_blank">📢 Channel</a>
         <div class="admin-only hidden"><hr/><p style="font-size:10px;color:#f60;font-weight:700">ADMIN TOOLS ⚙️</p><div class="nav-item" onclick="sP('admin')">📊 Dashboard</div></div>
         <div class="nav-item" onclick="logout()" style="color:red;margin-top:auto;border-top:1px solid #eee">🚪 Logout</div>
     </div>
     <div class="main-content">
         <div id="newsDisplay" class="news-bar hidden">📢 Loading...</div>
-        <div class="stats-grid">
-            <div class="stat-box"><small>Balance 💰</small><div id="userBalance">₹ 0.00</div></div>
-            <div class="stat-box"><small>Spent 💸</small><div id="totalSpent">₹ 0.00</div></div>
+        <div class="card" style="background:#f60;color:#fff;display:flex;justify-content:space-between;align-items:center;border:none">
+            <div><p style="margin:0;font-size:10px;opacity:0.9">Balance 💰</p><h2 id="userBalance" style="margin:0">₹ 0.00</h2><p style="margin:0;font-size:10px;opacity:0.8">Spent: <span id="totalSpent">₹ 0.00</span> 💸</p></div>
+            <div style="text-align:right"><p id="userEmailLabel" style="margin:0;font-size:10px"></p><b id="userRoleLabel" style="font-size:10px">USER</b></div>
         </div>
-        <div class="page" id="page_neworder"><div class="card"><h3>🛒 New Order</h3><select id="catSelect" onchange="fS()"><option value="">Category 📂</option></select><select id="serviceSelect" onchange="uL()"><option value="">Service 🚀</option></select><div id="limitDisplay" style="font-size:10px;color:#f60;margin-bottom:5px">Min: 0 | Max: 0</div><input id="orderLink" placeholder="Paste Link Here 🔗"/><input id="orderQty" oninput="cP()" placeholder="Qty 🔢" type="number"/><div style="text-align:center;padding:10px;background:#fff5ed;border-radius:8px;margin:10px 0;border:1px dashed #f60">Total: <b id="totalPrice" style="color:#f60">₹ 0.00</b></div><button class="btn-primary" onclick="pO()">Submit Order 🚀</button></div></div>
-        
+        <div class="page" id="page_neworder"><div class="card"><h3>🛒 New Order</h3><select id="catSelect" onchange="fS()"><option value="">Category 📂</option></select><select id="serviceSelect" onchange="uL()"><option value="">Service 🚀</option></select><div id="limitDisplay" style="font-size:10px;color:#f60;margin-bottom:5px">Min: 0 | Max: 0</div><input id="orderLink" placeholder="Link 🔗"/><input id="orderQty" oninput="cP()" placeholder="Qty 🔢" type="number"/><div style="text-align:center;padding:10px;background:#fff5ed;border-radius:8px;margin:10px 0;border:1px dashed #f60">Total: <b id="totalPrice" style="color:#f60">₹ 0.00</b></div><button class="btn-primary" onclick="pO()">Submit Order 🚀</button></div></div>
         <div class="page hidden" id="page_admin">
-            <div class="stats-grid admin-only hidden">
-                <div class="stat-box" style="background:#333"><small>Total Users</small><div id="adm_users">0</div></div>
-                <div class="stat-box" style="background:#333"><small>Total Orders</small><div id="adm_orders">0</div></div>
-            </div>
             <div id="ownerOnly" class="hidden">
                 <div class="card"><h3>📢 Manage News</h3><input id="newsInput"/><div style="display:flex;gap:10px"><button class="btn-primary" onclick="uN()">Update</button><button class="btn-primary" style="background:red" onclick="dN()">Delete</button></div></div>
                 <div class="card"><h3>🛠 Add Service</h3><input id="s_cat" placeholder="Cat"/><input id="s_name" placeholder="Name"/><input id="s_api" placeholder="API ID"/><input id="s_price" placeholder="Price"/><input id="s_base" placeholder="Base"/><div style="display:flex;gap:5px"><input id="s_min" placeholder="Min"/><input id="s_max" placeholder="Max"/></div><button class="btn-primary" onclick="aS()">Add</button></div>
-                <div class="card"><h3>📦 All Orders</h3><div style="overflow-x:auto"><table><thead><tr><th>User</th><th>Service</th><th>Qty</th><th>Action</th></tr></thead><tbody id="adminOrderList"></tbody></table></div></div>
+                <div class="card"><h3>📦 All Orders</h3><div style="overflow-x:auto"><table><thead><tr><th>User</th><th>Service</th><th>Link</th><th>Qty</th><th>Action</th></tr></thead><tbody id="adminOrderList"></tbody></table></div></div>
             </div>
             <div class="card"><h3>👥 Manage Users</h3><div style="overflow-x:auto"><table><thead><tr><th>Email</th><th>Bal</th><th>Action</th></tr></thead><tbody id="adminUserList"></tbody></table></div></div>
-            <div class="card"><h3>🎫 Support Tickets</h3><div style="overflow-x:auto"><table><thead><tr><th>User</th><th>Message</th><th>Action</th></tr></thead><tbody id="adminTicketList"></tbody></table></div></div>
             <div class="card"><h3>🛠 Services</h3><div style="overflow-x:auto"><table><tbody id="adminServiceList"></tbody></table></div></div>
             <div class="card"><h3>💳 Payments</h3><div style="overflow-x:auto"><table><tbody id="adminPayList"></tbody></table></div></div>
         </div>
-
-        <div class="page hidden" id="page_support"><div class="card"><h3>🎫 Support Ticket</h3><input id="ticketSub" placeholder="Subject"><textarea id="ticketMsg" placeholder="Message..." style="height:100px"></textarea><button class="btn-primary" onclick="sendTicket()">Submit ✅</button></div></div>
         <div class="page hidden" id="page_history"><div class="card"><h3>📜 History</h3><div style="overflow-x:auto"><table><tbody id="historyBody"></tbody></table></div></div></div>
         <div class="page hidden" id="page_refill"><div class="card"><h3>♻️ Refill</h3><div style="overflow-x:auto"><table><tbody id="refillBody"></tbody></table></div></div></div>
-        <div class="page hidden" id="page_funds" style="text-align:center"><div class="card"><h3>💰 Add Funds</h3><select id="payMethod" onchange="uQ()"><option value="m1">Method 1 (Min ₹10)</option><option value="m2">Method 2 (Min ₹5)</option></select><img id="qrImg" src="" style="width:140px;border:4px solid #f60;border-radius:15px;margin:10px 0"/><p id="upiIdText"></p><input id="payAmount" placeholder="Amount"/><input id="payUTR" placeholder="UTR"/><button class="btn-primary" onclick="sPy()">Submit ✅</button><hr/><div style="text-align:center"><a id="tgLink" class="btn-primary" href="" style="text-decoration:none;font-size:10px;display:inline-block;padding:10px 20px;line-height:1.4" target="_blank"></a></div></div></div>
+        <div class="page hidden" id="page_funds" style="text-align:center"><div class="card"><h3>💰 Add Funds</h3><p style="color:#f60;font-weight:700;font-size:14px">Min: ₹10</p><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=8849431174@fam%26pn=TOM%20SMM%26cu=INR" style="width:150px;border:4px solid #f60;border-radius:15px;margin:10px 0"/><p>UPI: <b>8849431174@fam</b></p><div style="border:1px solid #ffccaa;padding:10px;border-radius:10px;text-align:left;margin-bottom:10px"><b>Method 1: UTR ⚡</b><br/><input id="payAmount" placeholder="Amount"/><input id="payUTR" placeholder="UTR"/><button class="btn-primary" onclick="sPy()">Submit ✅</button></div><div style="border:1px solid #ffccaa;padding:10px;border-radius:10px;text-align:center"><a class="btn-primary" href="https://t.me/t0m_00o" style="text-decoration:none;font-size:10px" target="_blank">Send screenshot for verification ✅</a></div></div></div>
     </div>
 </div>
-
-<script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth-compat.js"></script><script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database-compat.js"></script>
 <script>
 const firebaseConfig={apiKey:"AIzaSyAj-7XMKfWERig_2L_Z_8K7AmH8cXPKYSM",authDomain:"tom-s-smm-panel-db4a0.firebaseapp.com",databaseURL:"https://tom-s-smm-panel-db4a0-default-rtdb.firebaseio.com",projectId:"tom-s-smm-panel-db4a0",storageBucket:"tom-s-smm-panel-db4a0.firebasestorage.app",messagingSenderId:"142090670292",appId:"1:142090670292:web:ea0e481cb1052dd36deb41"};
 const AK="feaf9e21aaf31e9557d151250a2e78b59f8f3bcf",AU="https://themainsprovider.com/api/v2";
 firebase.initializeApp(firebaseConfig);const auth=firebase.auth(),db=firebase.database();auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
-let allS=[],myR='user';const gI=(n)=>{n=n.toLowerCase();if(n.includes('fb')||n.includes('facebook'))return '🔵 ';if(n.includes('ig')||n.includes('insta'))return '📸 ';if(n.includes('yt')||n.includes('youtube'))return '🔴 ';if(n.includes('tg')||n.includes('tele'))return '✈️ ';return '📁 ';};
+let allS=[],myR='user';const gI=(n)=>{n=n.toLowerCase();if(n.includes('fb')||n.includes('facebook'))return '🔵 ';if(n.includes('ig')||n.includes('insta')||n.includes('instagram'))return '📸 ';if(n.includes('yt')||n.includes('youtube'))return '🔴 ';if(n.includes('tg')||n.includes('tele'))return '✈️ ';return '📁 ';};
 function tA(l){document.getElementById('loginFields').classList.toggle('hidden',!l);document.getElementById('signupFields').classList.toggle('hidden',l)}
 function toggleSidebar(){document.getElementById('sidebar').classList.toggle('active');document.getElementById('sidebarOverlay').classList.toggle('active')}
-function toggleTheme(){const b=document.body; b.getAttribute('data-theme')==='dark'?b.removeAttribute('data-theme'):b.setAttribute('data-theme','dark')}
 async function hL(){const u=document.getElementById('lU').value,p=document.getElementById('lP').value;if(!u||!p)return Swal.fire('Error','Fill details','error');let e=u;if(!u.includes('@')){const s=await db.ref('usernames/'+u).once('value');if(!s.exists())return Swal.fire('Error','User not found','error');e=s.val()}auth.signInWithEmailAndPassword(e,p).catch(err=>Swal.fire('Error',err.message,'error'))}
 async function hS(){const u=document.getElementById('rU').value,e=document.getElementById('rE').value,p=document.getElementById('rP').value;if(!u||!e||!p)return Swal.fire('Error','Fill all','error');const s=await db.ref('usernames/'+u).once('value');if(s.exists())return Swal.fire('Error','Taken','error');auth.createUserWithEmailAndPassword(e,p).then(r=>{db.ref('usernames/'+u).set(e);db.ref('users/'+r.user.uid).set({email:e,username:u,balance:0,totalSpent:0,role:'user'})}).catch(err=>Swal.fire('Error',err.message,'error'))}
 function sP(p){document.querySelectorAll('.page').forEach(e=>e.classList.add('hidden'));document.getElementById('page_'+p).classList.remove('hidden');if(document.getElementById('sidebar').classList.contains('active'))toggleSidebar()}
 function logout(){auth.signOut().then(()=>location.reload())}
-function uQ(){const m=document.getElementById('payMethod').value,upi=m==='m1'?'8849431174@fam':'9005033142-2@ibl',tg=m==='m1'?'@t0m_00o':'@Arrowaayush';document.getElementById('qrImg').src=`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=${upi}%26pn=TOM%20SMM%26cu=INR`;document.getElementById('upiIdText').innerHTML=`UPI: <b>${upi}</b>`;document.getElementById('tgLink').href=`https://t.me/${tg.replace('@','')}`;document.getElementById('tgLink').innerText=`Send screenshot to ${tg} ✅`}
-
-auth.onAuthStateChanged(u=>{if(u){document.getElementById('authPage').classList.add('hidden');document.getElementById('mainApp').classList.remove('hidden');document.getElementById('mobHead').classList.remove('hidden');uQ();
-db.ref('news').on('value',s=>{if(s.exists()){const n=s.val();document.getElementById('newsDisplay').innerText=`📢 ${n}`;document.getElementById('newsDisplay').classList.remove('hidden');Swal.fire({title:'📢 News',text:n,icon:'info',timer:5000})}});
-let dU=u.email;if(u.email==='kreypatel376@gmail.com'){dU="tom_000";myR='owner';db.ref('users/'+u.uid+'/role').set('owner');document.querySelectorAll('.admin-only').forEach(e=>e.classList.remove('hidden'));document.getElementById('ownerOnly').classList.remove('hidden');
-db.ref('users').on('value',s=>{let h=''; document.getElementById('adm_users').innerText=s.numChildren(); s.forEach(c=>{const v=c.val();let btn=`<button class="btn-success" onclick="editB('${c.key}')">₹</button>`;if(myR==='owner')btn+=` <button onclick="setR('${c.key}','admin')">AD</button> <button onclick="setR('${c.key}','user')">US</button>`;h+=`<tr><td>${v.email}</td><td>₹${v.balance.toFixed(2)}</td><td>${btn}</td></tr>`});document.getElementById('adminUserList').innerHTML=h});
-db.ref('all_orders').on('value',s=>{let h=''; document.getElementById('adm_orders').innerText=s.numChildren(); s.forEach(c=>{const o=c.val();h+=`<tr><td>${o.user}</td><td><b>${o.service}</b><br><a href="${o.link}" target="_blank">Link</a></td><td>${o.qty}</td><td><select onchange="chSt('${o.uid}','${c.key}',this.value)"><option value="Pending" ${o.status==='Pending'?'selected':''}>Pending</option><option value="Completed" ${o.status==='Completed'?'selected':''}>Completed</option><option value="Cancelled" ${o.status==='Cancelled'?'selected':''}>Cancelled</option></select></td></tr>`});document.getElementById('adminOrderList').innerHTML=h});
-db.ref('tickets').on('value',s=>{let h='';s.forEach(c=>{const t=c.val();h+=`<tr><td>${t.user}</td><td><b>${t.sub}</b>: ${t.msg}</td><td><button onclick="db.ref('tickets/${c.key}').remove()">Close</button></td></tr>`});document.getElementById('adminTicketList').innerHTML=h});
-db.ref('services').on('value',s=>{let h='';s.forEach(c=>{const v=c.val();h+=`<tr><td>${v.cat} | ${v.name}</td><td><button class="btn-success" onclick="editS('${c.key}')">E</button><button class="btn-danger" onclick="delS('${c.key}')">X</button></td></tr>`});document.getElementById('adminServiceList').innerHTML=h});
+auth.onAuthStateChanged(u=>{if(u){document.getElementById('authPage').classList.add('hidden');document.getElementById('mainApp').classList.remove('hidden');document.getElementById('mobHead').classList.remove('hidden');
+let dU=u.email;if(u.email==='kreypatel376@gmail.com'){dU="tom_000";myR='owner';db.ref('users/'+u.uid+'/role').set('owner');document.querySelectorAll('.admin-only').forEach(e=>e.classList.remove('hidden'));document.getElementById('ownerOnly').classList.remove('hidden');}
+db.ref('users/'+u.uid).on('value',s=>{const d=s.val();if(d){if(d.role==='admin'){myR='admin';document.querySelectorAll('.admin-only').forEach(e=>e.classList.remove('hidden'));}document.getElementById('userBalance').innerText='₹ '+d.balance.toFixed(2);document.getElementById('totalSpent').innerText='Spent: ₹ '+(d.totalSpent||0).toFixed(2);document.getElementById('userEmailLabel').innerText=dU}});
+db.ref('users').on('value',s=>{let h='';s.forEach(c=>{const v=c.val();let btn=`<button class="btn-success" onclick="editB('${c.key}')">₹</button>`;if(myR==='owner')btn+=` <button onclick="setR('${c.key}','admin')">AD</button> <button onclick="setR('${c.key}','user')">US</button>`;h+=`<tr><td>${v.email}</td><td>₹${v.balance.toFixed(2)}</td><td>${btn}</td></tr>`});document.getElementById('adminUserList').innerHTML=h});
+db.ref('all_orders').on('value',s=>{let h='';s.forEach(c=>{const o=c.val();h+='<tr><td>'+o.user+'</td><td><b>'+o.service+'</b></td><td>'+(o.apiID||'N/A')+'</td><td>'+o.qty+'</td><td><a href="'+o.link+'" target="_blank">Link</a></td><td><select onchange="chSt(\''+o.uid+'\',\''+c.key+'\',this.value)"><option value="Pending" '+(o.status==='Pending'?'selected':'')+'>Pending</option><option value="Completed" '+(o.status==='Completed'?'selected':'')+'>Completed</option><option value="Cancelled" '+(o.status==='Cancelled'?'selected':'')+'>Cancelled</option></select></td></tr>'});document.getElementById('adminOrderList').innerHTML=h});
+db.ref('services').on('value',s=>{let h='';s.forEach(c=>{const v=c.val();h+='<tr><td>'+v.cat+' | '+v.name+'</td><td><button class="btn-success" onclick="editS(\''+c.key+'\')">E</button><button class="btn-danger" onclick="delS(\''+c.key+'\')">X</button></td></tr>'});document.getElementById('adminServiceList').innerHTML=h});
 db.ref('payments').on('value',s=>{let h='';s.forEach(c=>{const p=c.val();h+='<tr><td>'+p.email+'</td><td>₹'+p.amount+'</td><td>'+p.utr+'</td><td><button class="btn-success" onclick="approveP(\''+c.key+'\',\''+p.uid+'\','+p.amount+')">OK</button></td></tr>'});document.getElementById('adminPayList').innerHTML=h});
-}
-db.ref('users/'+u.uid).on('value',s=>{const d=s.val();if(d){if(d.role==='admin'){myR='admin';document.querySelectorAll('.admin-only').forEach(e=>e.classList.remove('hidden'));}document.getElementById('userBalance').innerText='₹ '+d.balance.toFixed(2);document.getElementById('totalSpent').innerText='₹ '+(d.totalSpent||0).toFixed(2);document.getElementById('userEmailLabel').innerText=dU}});
 db.ref('services').on('value',s=>{allS=[];let cats=new Set();s.forEach(c=>{const v=c.val();v.key=c.key;allS.push(v);cats.add(v.cat)});let h='<option value="">Category</option>';cats.forEach(cat=>{h+=`<option value="${cat}">${gI(cat)}${cat}</option>`});document.getElementById('catSelect').innerHTML=h});
 db.ref('user_orders/'+u.uid).on('value',s=>{let h='';s.forEach(c=>{const o=c.val();h+='<tr><td>'+o.service+'</td><td><a href="'+o.link+'" target="_blank" style="color:#f60">Link</a></td><td>'+o.status+'</td></tr>'});document.getElementById('historyBody').innerHTML=h})}else{document.getElementById('authPage').classList.remove('hidden')}});
-function sendTicket(){const s=document.getElementById('ticketSub').value,m=document.getElementById('ticketMsg').value;if(s&amp;&amp;m){db.ref('tickets').push({user:auth.currentUser.email,sub:s,msg:m});Swal.fire('Success','Ticket sent!','success');document.getElementById('ticketSub').value='';document.getElementById('ticketMsg').value=''}}
 function setR(k,r){db.ref('users/'+k+'/role').set(r).then(()=>Swal.fire('OK','Updated','success'))}
 function editS(k){db.ref('services/'+k).once('value',s=>{const v=s.val();const c=prompt("Cat:",v.cat),n=prompt("Name:",v.name),p=prompt("Price:",v.price),b=prompt("Base:",v.base),mi=prompt("Min:",v.min),ma=prompt("Max:",v.max),ai=prompt("API ID:",v.serviceID);if(n)db.ref('services/'+k).update({cat:c,name:n,price:p,base:b,min:mi,max:ma,serviceID:ai})})}
 function delS(k){if(confirm("Delete?"))db.ref('services/'+k).remove()}
 function uL(){const s=document.getElementById('serviceSelect'),m=s.options[s.selectedIndex].getAttribute('data-min')||0,x=s.options[s.selectedIndex].getAttribute('data-max')||0;document.getElementById('limitDisplay').innerText='Min: '+m+' | Max: '+x;calcPrice()}
-function sPy(){const a=document.getElementById('payAmount').value,u=document.getElementById('payUTR').value;if(a>=10 &amp;&amp; u.length===12){db.ref('payments').push({uid:auth.currentUser.uid,email:auth.currentUser.email,amount:a,utr:u});Swal.fire('OK','Submitted','success')}else alert("Error")}
+function sPy(){const a=document.getElementById('payAmount').value,u=document.getElementById('payUTR').value;if(a>=10 && u.length===12){db.ref('payments').push({uid:auth.currentUser.uid,email:auth.currentUser.email,amount:a,utr:u});Swal.fire('OK','Submitted','success')}else alert("Error")}
 function approveP(k,u,a){db.ref('users/'+u+'/balance').transaction(b=>(b||0)+parseFloat(a));db.ref('payments/'+k).remove()}
 function aS(){const c=document.getElementById('s_cat').value,n=document.getElementById('s_name').value,p=document.getElementById('s_price').value,b=document.getElementById('s_base').value,m=document.getElementById('s_min').value,x=document.getElementById('s_max').value,ai=document.getElementById('s_api').value;if(n)db.ref('services').push({cat:c,name:n,price:p,base:b,min:m,max:x,serviceID:ai})}
 function editB(u){const a=prompt("Amount:");if(a)db.ref('users/'+u+'/balance').transaction(b=>(b||0)+parseFloat(a))}
 function calcPrice(){const s=document.getElementById('serviceSelect'),r=parseFloat(s.value),b=parseFloat(s.options[s.selectedIndex].getAttribute('data-base')),q=parseFloat(document.getElementById('orderQty').value)||0;document.getElementById('totalPrice').innerText='₹ '+((r/b)*q).toFixed(2)}
-function pO(){const s=document.getElementById('serviceSelect'),q=parseFloat(document.getElementById('orderQty').value),l=document.getElementById('orderLink').value,t=parseFloat(document.getElementById('totalPrice').innerText.replace('₹ ','')),u=auth.currentUser,m=parseFloat(s.options[s.selectedIndex].getAttribute('data-min')),x=parseFloat(s.options[s.selectedIndex].getAttribute('data-
+function pO(){const s=document.getElementById('serviceSelect'),q=parseFloat(document.getElementById('orderQty').value),l=document.getElementById('orderLink').value,t=parseFloat(document.getElementById('totalPrice').innerText.replace('₹ ','')),u=auth.currentUser,m=parseFloat(s.options[s.selectedIndex].getAttribute('data-min')),x=parseFloat(s.options[s.selectedIndex].getAttribute('data-max')),ai=s.options[s.selectedIndex].getAttribute('data-api');if(!l||q<m||q>x)return alert("Error");db.ref('users/'+u.uid+'/balance').once('value',s=>{const b=s.val()||0;if(b>=t){db.ref('users/'+u.uid+'/balance').set(b-t);db.ref('users/'+u.uid+'/totalSpent').transaction(s=>(s||0)+t);const r=db.ref('all_orders').push(),k=r.key,o={uid:u.uid,user:u.email,service:document.getElementById('serviceSelect').options[document.getElementById('serviceSelect').selectedIndex].text,qty:q,link:l,price:t,status:'Pending',apiID:ai};r.set(o);db.ref('user_orders/'+u.uid+'/'+k).set(o);Swal.fire('OK','Order Placed','success')}else alert("Low Balance")})}
+function fS(){const cat=document.getElementById('catSelect').value;let h='<option value="">Service</option>';allS.filter(s=>s.cat===cat).forEach(s=>{h+=`<option data-min="${s.min}" data-max="${s.max}" data-base="${s.base}" data-api="${s.serviceID}" value="${s.price}">${s.name} - ₹${s.price}</option>`});document.getElementById('serviceSelect').innerHTML=h}
+function chSt(u,k,s){db.ref('all_orders/'+k+'/status').set(s);db.ref('user_orders/'+u+'/'+k+'/status').set(s);if(s==='Cancelled'){db.ref('all_orders/'+k).once('value',o=>{db.ref('users/'+u+'/balance').transaction(b=>(b||0)+o.val().price);Swal.fire('Refunded','Money returned','success')})}else{Swal.fire('OK','Updated','success')}}
+function uN(){const n=document.getElementById('newsInput').value;if(n)db.ref('news').set(n)}
+function dN(){db.ref('news').remove()}
+</script>
+</body>
+</html>
