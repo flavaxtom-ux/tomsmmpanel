@@ -26,7 +26,7 @@ input,select,textarea{width:100%;padding:12px;margin:8px 0;border:1px solid #ffc
 table{width:100%;border-collapse:collapse}
 th,td{padding:12px;text-align:left;border-bottom:1px solid #f1f5f9;font-size:12px;word-break:break-word}
 th{background:#fff9f5;color:var(--p);font-weight:600}
-.news-bar{background:#fff5ed;border:1px solid #f60;padding:12px;border-radius:12px;margin-bottom:20px;color:#f60;font-weight:600;font-size:13px;animation:pulse 2s infinite}
+.news-bar{background:#fff5ed;border:1px solid #f60;padding:12px;border-radius:12px;margin-bottom:20px;color:#f60;font-weight:600;font-size:13px;animation:pulse 2s infinite; text-align: center;}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,102,0,0.4)}70%{box-shadow:0 0 0 10px rgba(255,102,0,0)}100%{box-shadow:0 0 0 0 rgba(255,102,0,0)}}
 @media (max-width:768px){ .main-content{padding:15px} }
 </style>
@@ -40,19 +40,27 @@ th{background:#fff9f5;color:var(--p);font-weight:600}
 <div id="signupFields" class="hidden"><input id="rU" placeholder="👤 Username"/><input id="rE" placeholder="📧 Email"/><input id="rP" placeholder="🔑 Pass" type="password"/><button class="btn-primary" onclick="hS()">Signup ✨</button><p style="font-size:10px;margin-top:10px">Have account? <a href="javascript:void(0)" onclick="tA(true)" style="color:#f60;font-weight:bold">Login 🚀</a></p></div>
 </div></div>
 <div class="hidden" id="mainApp">
-    <div id="mobHead" class="mobile-header"><b style="color:#f60">TOM SMM ✅</b><button onclick="toggleSidebar()" style="background:#f60;color:#fff;border:none;padding:8px 15px;border-radius:8px">MENU ☰</button></div>
+    <div id="mobHead" class="mobile-header">
+        <button onclick="toggleSidebar()" style="background:#f60;color:#fff;border:none;padding:8px 15px;border-radius:8px">MENU ☰</button>
+        <b style="color:#f60">TOM SMM ✅</b>
+        <button onclick="logout()" style="background:red;color:#fff;border:none;padding:8px 10px;border-radius:8px;font-size:10px">EXIT 🚪</button>
+    </div>
     <div class="sidebar" id="sidebar">
         <h2 style="color:#f60">TOM SMM ✅</h2>
         <div class="nav-item active" onclick="sP('neworder')">🛒 New Order</div>
         <div class="nav-item" onclick="sP('history')">📜 My Orders</div>
         <div class="nav-item" onclick="sP('refill')">♻️ Refill</div>
         <div class="nav-item" onclick="sP('funds')">💰 Add Funds</div>
-        <a class="nav-item" href="https://t.me/tomsmmmpanel" target="_blank">📢 Channel</a>
+        <hr/>
+        <a class="nav-item" href="https://t.me/tomsmmmpanel" target="_blank" style="background:#e3f2fd">📢 Channel</a>
+        <a class="nav-item" href="https://t.me/t0m_00o" target="_blank" style="background:#fff3e0;color:#e65100">💬 Admin Support</a>
         <div class="admin-only hidden"><hr/><p style="font-size:10px;color:#f60;font-weight:700">ADMIN TOOLS ⚙️</p><div class="nav-item" onclick="sP('admin')">📊 Dashboard</div></div>
         <div class="nav-item" onclick="logout()" style="color:red;margin-top:auto;border-top:1px solid #eee">🚪 Logout</div>
     </div>
     <div class="main-content">
-        <div id="newsDisplay" class="news-bar hidden">📢 Loading...</div>
+        <!-- News Section -->
+        <div id="newsDisplay" class="news-bar hidden">📢 Loading News...</div>
+        
         <div class="card" style="background:#f60;color:#fff;display:flex;justify-content:space-between;align-items:center;border:none">
             <div><p style="margin:0;font-size:10px;opacity:0.9">Balance 💰</p><h2 id="userBalance" style="margin:0">₹ 0.00</h2><p style="margin:0;font-size:10px;opacity:0.8">Spent: <span id="totalSpent">₹ 0.00</span> 💸</p></div>
             <div style="text-align:right"><p id="userEmailLabel" style="margin:0;font-size:10px"></p><b id="userRoleLabel" style="font-size:10px">USER</b></div>
@@ -60,7 +68,7 @@ th{background:#fff9f5;color:var(--p);font-weight:600}
         <div class="page" id="page_neworder"><div class="card"><h3>🛒 New Order</h3><select id="catSelect" onchange="fS()"><option value="">Category 📂</option></select><select id="serviceSelect" onchange="uL()"><option value="">Service 🚀</option></select><div id="limitDisplay" style="font-size:10px;color:#f60;margin-bottom:5px">Min: 0 | Max: 0</div><input id="orderLink" placeholder="Link 🔗"/><input id="orderQty" oninput="cP()" placeholder="Qty 🔢" type="number"/><div style="text-align:center;padding:10px;background:#fff5ed;border-radius:8px;margin:10px 0;border:1px dashed #f60">Total: <b id="totalPrice" style="color:#f60">₹ 0.00</b></div><button class="btn-primary" onclick="pO()">Submit Order 🚀</button></div></div>
         <div class="page hidden" id="page_admin">
             <div id="ownerOnly" class="hidden">
-                <div class="card"><h3>📢 Manage News</h3><input id="newsInput"/><div style="display:flex;gap:10px"><button class="btn-primary" onclick="uN()">Update</button><button class="btn-primary" style="background:red" onclick="dN()">Delete</button></div></div>
+                <div class="card"><h3>📢 Manage News</h3><input id="newsInput" placeholder="Enter News Message..."/><div style="display:flex;gap:10px"><button class="btn-primary" onclick="uN()">Update</button><button class="btn-primary" style="background:red" onclick="dN()">Delete</button></div></div>
                 <div class="card"><h3>🛠 Add Service</h3><input id="s_cat" placeholder="Cat"/><input id="s_name" placeholder="Name"/><input id="s_api" placeholder="API ID"/><input id="s_price" placeholder="Price"/><input id="s_base" placeholder="Base"/><div style="display:flex;gap:5px"><input id="s_min" placeholder="Min"/><input id="s_max" placeholder="Max"/></div><button class="btn-primary" onclick="aS()">Add</button></div>
                 <div class="card"><h3>📦 All Orders</h3><div style="overflow-x:auto"><table><thead><tr><th>User</th><th>Service</th><th>Link</th><th>Qty</th><th>Action</th></tr></thead><tbody id="adminOrderList"></tbody></table></div></div>
             </div>
@@ -87,6 +95,19 @@ function sP(p){document.querySelectorAll('.page').forEach(e=>e.classList.add('hi
 function logout(){auth.signOut().then(()=>location.reload())}
 auth.onAuthStateChanged(u=>{if(u){document.getElementById('authPage').classList.add('hidden');document.getElementById('mainApp').classList.remove('hidden');document.getElementById('mobHead').classList.remove('hidden');
 let dU=u.email;if(u.email==='kreypatel376@gmail.com'){dU="tom_000";myR='owner';db.ref('users/'+u.uid+'/role').set('owner');document.querySelectorAll('.admin-only').forEach(e=>e.classList.remove('hidden'));document.getElementById('ownerOnly').classList.remove('hidden');}
+
+// News Display Logic
+db.ref('news').on('value', s => {
+    const news = s.val();
+    const newsBox = document.getElementById('newsDisplay');
+    if(news) {
+        newsBox.innerText = "📢 " + news;
+        newsBox.classList.remove('hidden');
+    } else {
+        newsBox.classList.add('hidden');
+    }
+});
+
 db.ref('users/'+u.uid).on('value',s=>{const d=s.val();if(d){if(d.role==='admin'){myR='admin';document.querySelectorAll('.admin-only').forEach(e=>e.classList.remove('hidden'));}document.getElementById('userBalance').innerText='₹ '+d.balance.toFixed(2);document.getElementById('totalSpent').innerText='Spent: ₹ '+(d.totalSpent||0).toFixed(2);document.getElementById('userEmailLabel').innerText=dU}});
 db.ref('users').on('value',s=>{let h='';s.forEach(c=>{const v=c.val();let btn=`<button class="btn-success" onclick="editB('${c.key}')">₹</button>`;if(myR==='owner')btn+=` <button onclick="setR('${c.key}','admin')">AD</button> <button onclick="setR('${c.key}','user')">US</button>`;h+=`<tr><td>${v.email}</td><td>₹${v.balance.toFixed(2)}</td><td>${btn}</td></tr>`});document.getElementById('adminUserList').innerHTML=h});
 db.ref('all_orders').on('value',s=>{let h='';s.forEach(c=>{const o=c.val();h+='<tr><td>'+o.user+'</td><td><b>'+o.service+'</b></td><td>'+(o.apiID||'N/A')+'</td><td>'+o.qty+'</td><td><a href="'+o.link+'" target="_blank">Link</a></td><td><select onchange="chSt(\''+o.uid+'\',\''+c.key+'\',this.value)"><option value="Pending" '+(o.status==='Pending'?'selected':'')+'>Pending</option><option value="Completed" '+(o.status==='Completed'?'selected':'')+'>Completed</option><option value="Cancelled" '+(o.status==='Cancelled'?'selected':'')+'>Cancelled</option></select></td></tr>'});document.getElementById('adminOrderList').innerHTML=h});
