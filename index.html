@@ -4,17 +4,17 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>TOM SMM PANEL ✅</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- PWA APP ICON (Rocket Logo) -->
 <meta name="theme-color" content="#ff6600"><meta name="mobile-web-app-capable" content="yes">
 <link rel="apple-touch-icon" href="https://i.postimg.cc/qM9n7n9G/tom-logo.png">
-<link rel="manifest" href="data:application/manifest+json,{%22name%22:%22TOM%20SMM%20PANEL%22,%22short_name%22:%22TOM%20SMM%22,%22start_url%22:%22index.html%22,%22display%22:%22standalone%22,%22background_color%22:%22%23ffffff%22,%22theme_color%22:%22%23ff6600%22,%22icons%22:[{%22src%22:%22https://i.postimg.cc/qM9n7n9G/tom-logo.png%22,%22sizes%22:%22192x192%22,%22type%22:%22image/png%22}]}">
+<link rel="manifest" href="data:application/manifest+json,{%22name%22:%22TOM%20SMM%20PANEL%22,%22short_name%22:%22TOM%20SMM%22,%22start_url%22:%22.%22,%22display%22:%22standalone%22,%22background_color%22:%22%23ffffff%22,%22theme_color%22:%22%23ff6600%22,%22icons%22:[{%22src%22:%22https://i.postimg.cc/qM9n7n9G/tom-logo.png%22,%22sizes%22:%22192x192%22,%22type%22:%22image/png%22},{%22src%22:%22https://i.postimg.cc/qM9n7n9G/tom-logo.png%22,%22sizes%22:%22512x512%22,%22type%22:%22image/png%22}]}">
 <style>
 :root{--p:#ff6600;--bg:#f4f7f6;--s:#fff;--text:#333;--card:#fff;--border:#ffe0cc}
 body.dark-theme{--bg:#121212;--s:#1e1e1e;--text:#eee;--card:#1e1e1e;--border:#333}
 body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);margin:0;padding:0;overflow-x:hidden;transition:0.3s}
-.hidden{display:none!important}
-.sidebar{width:270px;background:var(--s);height:100vh;position:fixed;top:0;left:-300px;padding:20px;z-index:3000;transition:0.3s;border-right:3px solid var(--p);display:flex;flex-direction:column;box-shadow:5px 0 15px rgba(0,0,0,0.1)}
-.sidebar.active{left:0}.sidebar-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:2500;display:none}
-.sidebar-overlay.active{display:block}.mobile-header{background:var(--s);padding:15px;border-bottom:1px solid #ddd;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000}
+.hidden{display:none!important}.sidebar{width:270px;background:var(--s);height:100vh;position:fixed;top:0;left:-300px;padding:20px;z-index:3000;transition:0.3s;border-right:3px solid var(--p);display:flex;flex-direction:column;box-shadow:5px 0 15px rgba(0,0,0,0.1)}
+.sidebar.active{left:0}.sidebar-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:2500;display:none}.sidebar-overlay.active{display:block}
+.mobile-header{background:var(--s);padding:15px;border-bottom:1px solid #ddd;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000}
 .card{background:var(--card);padding:20px;border-radius:15px;box-shadow:0 4px 15px rgba(0,0,0,0.05);margin-bottom:20px;border:1px solid var(--border)}
 .btn-primary{background:var(--p);color:#fff;border:none;padding:12px;border-radius:10px;width:100%;cursor:pointer;font-weight:600}
 .btn-success{background:#22c55e!important;color:#fff!important;padding:5px 8px;border-radius:5px;border:none;font-size:10px}
@@ -29,44 +29,37 @@ table{width:100%;border-collapse:collapse;font-size:11px}th,td{padding:10px;text
 <div id="mnt-scr" class="hidden"><h1>🛠 MAINTENANCE</h1><p>We'll be back soon! 🚀</p></div>
 <div id="sidebarOverlay" class="sidebar-overlay" onclick="tS()"></div>
 <div id="authPage" style="display:flex;justify-content:center;align-items:center;height:100vh;padding:20px">
-<div class="card" style="width:100%;max-width:350px;text-align:center;border-top:5px solid #f60">
-<h2 style="color:#f60">TOM SMM PANEL ✅</h2>
+<div class="card" style="width:100%;max-width:350px;text-align:center;border-top:5px solid #f60"><h2 style="color:#f60">TOM SMM PANEL ✅</h2>
 <div id="lF"><input id="lU" placeholder="👤 Username/Email"/><input id="lP" placeholder="🔑 Pass" type="password"/><button class="btn-primary" onclick="hL()">Login 🚀</button><p onclick="tA(false)" style="cursor:pointer;font-size:11px;margin-top:10px">No account? Signup ✨</p></div>
 <div id="sF" class="hidden"><input id="rU" placeholder="👤 Username"/><input id="rE" placeholder="📧 Email"/><input id="rP" placeholder="🔑 Pass" type="password"/><button class="btn-primary" onclick="hS()">Signup ✨</button><p onclick="tA(true)" style="cursor:pointer;font-size:11px;margin-top:10px">Have account? Login 🚀</p></div>
 </div></div>
 <div class="hidden" id="mainApp">
 <div id="mobHead" class="mobile-header"><button onclick="tS()" style="background:#f60;color:#fff;border:none;padding:8px 12px;border-radius:5px">☰</button><b>TOM SMM ✅</b><button onclick="logout()" style="background:red;color:#fff;border:none;padding:8px;border-radius:5px;font-size:10px">EXIT</button></div>
-<div class="sidebar" id="sidebar">
-<h2 style="color:#f60">TOM SMM ✅</h2>
+<div class="sidebar" id="sidebar"><h2 style="color:#f60">TOM SMM ✅</h2>
 <div class="nav-item" onclick="sP('neworder')">🛒 New Order</div><div class="nav-item" onclick="sP('history')">📜 My Orders</div><div class="nav-item" onclick="sP('funds')">💰 Add Funds</div><hr/>
-<div class="nav-item" id="installBtn" style="background:#fff5ed;color:#f60;border:1px dashed #f60;font-weight:700" onclick="installApp()">📲 Install Official App</div>
+<div class="nav-item" id="installBtn" style="background:#fff5ed;color:#f60;border:1px dashed #f60;font-weight:700;cursor:pointer" onclick="installApp()">📲 Install Official App</div>
 <div class="nav-item" onclick="toggleTheme()" id="thBtn">🌙 Dark Mode</div><a class="nav-item" href="https://t.me/tomsmmmpanel" target="_blank">📢 Channel</a><a class="nav-item" href="https://t.me/t0m_00o" target="_blank" style="color:#f60">💬 Support</a>
 <div class="admin-only hidden"><hr/><p style="font-size:10px;color:#f60">ADMIN</p><div class="nav-item" onclick="sP('admin')">📊 Dashboard</div></div>
 <div class="nav-item" onclick="logout()" style="color:red;margin-top:auto">🚪 Logout</div>
 </div>
 <div class="main-content" style="padding:15px">
 <div id="newsDisplay" class="news-bar hidden"></div>
-<div class="card" style="background:#f60;color:#fff;display:flex;justify-content:space-between;border:none">
-<div><p style="margin:0;font-size:10px">Balance</p><h2 id="uBal" style="margin:0">₹ 0.00</h2></div>
-<div style="text-align:right"><p id="uEmail" style="margin:0;font-size:10px"></p><b id="uRole" style="font-size:10px">USER</b></div>
-</div>
+<div class="card" style="background:#f60;color:#fff;display:flex;justify-content:space-between;border:none"><div><p style="margin:0;font-size:10px">Balance</p><h2 id="uBal" style="margin:0">₹ 0.00</h2></div>
+<div style="text-align:right"><p id="uEmail" style="margin:0;font-size:10px"></p><b id="uRole" style="font-size:10px">USER</b></div></div>
 <div class="page" id="page_neworder"><div class="card"><h3>🛒 Order</h3><select id="catSelect" onchange="fS()"></select><select id="serviceSelect" onchange="uL()"></select><input id="orderLink" placeholder="Link 🔗"/><input id="orderQty" oninput="calcPrice()" placeholder="Qty 🔢" type="number"/><p id="totalPrice" style="color:#f60;font-weight:bold;text-align:center">₹ 0.00</p><button class="btn-primary" onclick="pO()">Submit 🚀</button></div></div>
-<div class="page hidden" id="page_admin">
-<div id="ownerOnly" class="hidden"><div class="card"><h3>🚨 System</h3><button onclick="setM(true)">Mnt ON</button><button onclick="setM(false)">Mnt OFF</button><hr/><input id="bcI" placeholder="Broadcast"/><button onclick="sendBC()">Send 📢</button></div>
+<div class="page hidden" id="page_admin"><div id="ownerOnly" class="hidden"><div class="card"><h3>🚨 System</h3><button onclick="setM(true)">Mnt ON</button><button onclick="setM(false)">Mnt OFF</button><hr/><input id="bcI" placeholder="Broadcast"/><button onclick="sendBC()">Send 📢</button></div>
 <div class="card"><h3>🛠 Add Service</h3><input id="s_cat" placeholder="Cat"/><input id="s_name" placeholder="Name"/><input id="s_api" placeholder="API ID"/><input id="s_price" placeholder="Price"/><input id="s_base" placeholder="Base"/><button onclick="aS()">Add</button></div>
 <div class="card"><h3>📦 Orders</h3><div style="overflow-x:auto"><table><tbody id="adminOrderList"></tbody></table></div></div></div>
-<div class="card"><h3>👥 Users</h3><div style="overflow-x:auto"><table><tbody id="adminUserList"></tbody></table></div></div>
-</div>
+<div class="card"><h3>👥 Users</h3><div style="overflow-x:auto"><table><tbody id="adminUserList"></tbody></table></div></div></div>
 <div class="page hidden" id="page_history"><div class="card"><h3>📜 History</h3><div style="overflow-x:auto"><table><tbody id="historyBody"></tbody></table></div></div></div>
-<div class="page hidden" id="page_funds" style="text-align:center"><div class="card"><h3>💰 Funds</h3><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=8849431174@fam%26pn=TOM%20SMM" style="width:150px;border:3px solid #f60;border-radius:10px"/><p>8849431174@fam</p><input id="pAmt" placeholder="Amount"/><input id="pUTR" placeholder="UTR"/><button class="btn-primary" onclick="sPy()">Submit ✅</button><br/><br/><a href="https://t.me/t0m_00o" target="_blank" style="color:#f60;font-size:12px">Send Screenshot ✅</a></div></div>
-</div></div>
+<div class="page hidden" id="page_funds" style="text-align:center"><div class="card"><h3>💰 Funds</h3><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=8849431174@fam%26pn=TOM%20SMM" style="width:150px;border:3px solid #f60;border-radius:10px"/><p>8849431174@fam</p><input id="pAmt" placeholder="Amount"/><input id="pUTR" placeholder="UTR"/><button class="btn-primary" onclick="sPy()">Submit ✅</button><br/><br/><a href="https://t.me/t0m_00o" target="_blank" style="color:#f60;font-size:12px;text-decoration:none">Send Screenshot ✅</a></div></div></div></div>
 <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth-compat.js"></script><script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database-compat.js"></script>
 <script>
 const firebaseConfig={apiKey:"AIzaSyAj-7XMKfWERig_2L_Z_8K7AmH8cXPKYSM",authDomain:"tom-s-smm-panel-db4a0.firebaseapp.com",databaseURL:"https://tom-s-smm-panel-db4a0-default-rtdb.firebaseio.com",projectId:"tom-s-smm-panel-db4a0",storageBucket:"tom-s-smm-panel-db4a0.firebasestorage.app",messagingSenderId:"142090670292",appId:"1:142090670292:web:ea0e481cb1052dd36deb41"};
 firebase.initializeApp(firebaseConfig);const auth=firebase.auth(),db=firebase.database();let allS=[],myR='user',deferredPrompt;
-if ('serviceWorker' in navigator) {const sw="self.addEventListener('install',e=>self.skipWaiting());self.addEventListener('fetch',e=>e);";const blob=new Blob([sw],{type:'text/javascript'});navigator.serviceWorker.register(URL.createObjectURL(blob));}
+if('serviceWorker' in navigator){const sw="self.addEventListener('install',e=>self.skipWaiting());self.addEventListener('fetch',e=>e);";const blob=new Blob([sw],{type:'text/javascript'});navigator.serviceWorker.register(URL.createObjectURL(blob));}
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;});
-function installApp(){if(deferredPrompt){deferredPrompt.prompt();}else{Swal.fire('Info','Use Chrome Menu > Install App','info')}}
+function installApp(){if(deferredPrompt){deferredPrompt.prompt();deferredPrompt.userChoice.then(r=>{deferredPrompt=null})}else{Swal.fire('Info','Please use Chrome Menu > Install App','info')}}
 function toggleTheme(){document.body.classList.toggle('dark-theme');localStorage.setItem('theme',document.body.classList.contains('dark-theme')?'dark':'light')}
 if(localStorage.getItem('theme')==='dark')document.body.classList.add('dark-theme');
 function tA(l){document.getElementById('lF').classList.toggle('hidden',!l);document.getElementById('sF').classList.toggle('hidden',l)}
@@ -86,7 +79,7 @@ db.ref('all_orders').on('value',s=>{let h='';s.forEach(c=>{const o=c.val();h+=`<
 db.ref('services').on('value',s=>{allS=[];let cts=new Set(),sh='';s.forEach(c=>{const v=c.val();v.key=c.key;allS.push(v);cts.add(v.cat);sh+=`<tr><td>${v.name}</td><td><button onclick="delS('${v.key}')">X</button></td></tr>`});let h='<option>Category</option>';cts.forEach(t=>h+=`<option value="${t}">${t}</option>`);document.getElementById('catSelect').innerHTML=h;document.getElementById('adminServiceList').innerHTML=sh});
 db.ref('user_orders/'+u.uid).on('value',s=>{let h='';s.forEach(c=>{const o=c.val();h+=`<tr><td>${o.service}</td><td>${o.status}</td></tr>`});document.getElementById('historyBody').innerHTML=h})}else document.getElementById('authPage').classList.remove('hidden')});
 function setM(v){db.ref('system_settings/maintenance').set(v)}
-function sendBC(){db.ref('system_settings/broadcast').set(document.getElementById('bcI').value)}
+function sendBC(v){db.ref('system_settings/broadcast').set(document.getElementById('bcI').value)}
 function aS(){const c=document.getElementById('s_cat').value,n=document.getElementById('s_name').value,p=document.getElementById('s_price').value,b=document.getElementById('s_base').value,ai=document.getElementById('s_api').value;db.ref('services').push({cat:c,name:n,price:p,base:b,serviceID:ai})}
 function delS(k){if(confirm("Del?"))db.ref('services/'+k).remove()}
 function setR(k,r){db.ref('users/'+k+'/role').set(r)}
