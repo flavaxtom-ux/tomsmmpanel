@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="https://i.postimg.cc/qM9n7n9G/tom-logo.png">
-<link rel="manifest" href="data:application/manifest+json,{%22name%22:%22TOM%20SMM%20PANEL%22,%22short_name%22:%22TOM%20SMM%22,%22start_url%22:%22index.html%22,%22display%22:%22standalone%22,%22background_color%22:%22%23ffffff%22,%22theme_color%22:%22%23ff6600%22,%22icons%22:[{%22src%22:%22https://i.postimg.cc/qM9n7n9G/tom-logo.png%22,%22sizes%22:%22192x192%22,%22type%22:%22image/png%22}]}">
+<link rel="manifest" href="data:application/manifest+json,{%22name%22:%22TOM%20SMM%20PANEL%22,%22short_name%22:%22TOM%20SMM%22,%22start_url%22:%22index.html%22,%22display%22:%22standalone%22,%22background_color%22:%22%23ffffff%22,%22theme_color%22:%22%23ff6600%22,%22icons%22:[{%22src%22:%22https://i.postimg.cc/qM9n7n9G/tom-logo.png%22,%22sizes%22:%22192x192%22,%22type%22:%22image/png%22},{%22src%22:%22https://i.postimg.cc/qM9n7n9G/tom-logo.png%22,%22sizes%22:%22512x512%22,%22type%22:%22image/png%22}]}">
 
 <style>
 :root{--p:#ff6600;--bg:#f4f7f6;--s:#ffffff;--text:#333;--card:#fff;--border:#ffe0cc}
@@ -55,7 +55,7 @@ th,td{padding:12px;text-align:left;border-bottom:1px solid #eee;word-break:break
 <div class="sidebar" id="sidebar">
 <h2 style="color:#f60">TOM SMM ✅</h2>
 <div class="nav-item" onclick="sP('neworder')">🛒 New Order</div><div class="nav-item" onclick="sP('history')">📜 My Orders</div><div class="nav-item" onclick="sP('funds')">💰 Add Funds</div><hr/>
-<div class="nav-item" id="installBtn" style="display:none; background:#fff5ed; color:#f60; border:1px dashed #f60; font-weight:bold" onclick="installApp()">📲 Install Official App</div>
+<div class="nav-item" id="installBtn" style="background:#fff5ed; color:#f60; border:1px dashed #f60; font-weight:bold; cursor:pointer;" onclick="installApp()">📲 Install Official App</div>
 <div class="nav-item" onclick="toggleTheme()" id="thBtn">🌙 Dark Mode</div><a class="nav-item" href="https://t.me/tomsmmmpanel" target="_blank">📢 Channel</a><a class="nav-item" href="https://t.me/t0m_00o" target="_blank" style="color:#f60">💬 Admin Support</a>
 <div class="admin-only hidden"><hr/><p style="font-size:10px;color:#f60">ADMIN</p><div class="nav-item" onclick="sP('admin')">📊 Dashboard</div></div>
 <div class="nav-item" onclick="logout()" style="color:red;margin-top:auto">🚪 Logout</div>
@@ -93,22 +93,20 @@ const firebaseConfig={apiKey:"AIzaSyAj-7XMKfWERig_2L_Z_8K7AmH8cXPKYSM",authDomai
 firebase.initializeApp(firebaseConfig);const auth=firebase.auth(),db=firebase.database();
 let allS=[],myR='user';
 
-// --- PWA INSTALL LOGIC (FIXED) ---
+// --- FIXED PWA INSTALL LOGIC ---
 let deferredPrompt;
 const installBtn = document.getElementById('installBtn');
 
-// Register Service Worker (Required for Install Button)
 if ('serviceWorker' in navigator) {
-    const swCode = "self.addEventListener('fetch', function(event) {});";
+    const swCode = "self.addEventListener('install', (e) => self.skipWaiting()); self.addEventListener('fetch', (e) => e);";
     const blob = new Blob([swCode], {type: 'text/javascript'});
-    const url = URL.createObjectURL(blob);
-    navigator.serviceWorker.register(url);
+    navigator.serviceWorker.register(URL.createObjectURL(blob)).then(() => console.log("SW Registered"));
 }
 
 window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
-    installBtn.style.display = 'flex'; // Show button when ready
+    console.log("Prompt is ready");
 });
 
 function installApp() {
@@ -117,6 +115,13 @@ function installApp() {
         deferredPrompt.userChoice.then((choice) => {
             if (choice.outcome === 'accepted') installBtn.style.display = 'none';
             deferredPrompt = null;
+        });
+    } else {
+        // Fallback for browsers/conditions where beforeinstallprompt didn't fire yet
+        Swal.fire({
+            title: 'How to Install',
+            html: '1. Click the <b>3 Dots (⋮)</b> in Chrome menu.<br>2. Click <b>"Install App"</b> or <b>"Add to Home screen"</b>.<br><br>Logo: Rocket Icon 🚀',
+            icon: 'info'
         });
     }
 }
@@ -156,9 +161,4 @@ function uL(){const s=document.getElementById('serviceSelect'),m=s.options[s.sel
 function calcPrice(){const s=document.getElementById('serviceSelect'),q=document.getElementById('orderQty').value||0,p=s.value,b=s.options[s.selectedIndex].dataset.base;document.getElementById('totalPrice').innerText='₹ '+((p/b)*q).toFixed(2)}
 function sPy(){const a=document.getElementById('pAmt').value,u=document.getElementById('pUTR').value;if(a>=10&&u.length===12){db.ref('payments').push({uid:auth.currentUser.uid,email:auth.currentUser.email,amount:a,utr:u});Swal.fire('Done','Wait for admin approval','success')}else alert('Invalid details')}
 function pO(){const s=document.getElementById('serviceSelect'),q=document.getElementById('orderQty').value,l=document.getElementById('orderLink').value,t=parseFloat(document.getElementById('totalPrice').innerText.replace('₹ ','')),ai=s.options[s.selectedIndex].dataset.api;db.ref('users/'+auth.currentUser.uid+'/balance').once('value',sv=>{const b=sv.val();if(b>=t){db.ref('users/'+auth.currentUser.uid+'/balance').set(b-t);const o={uid:auth.currentUser.uid,user:auth.currentUser.email,service:s.options[s.selectedIndex].text,qty:q,link:l,status:'Pending',price:t,apiID:ai};const r=db.ref('all_orders').push();db.ref('user_orders/'+auth.currentUser.uid+'/'+r.key).set(o);Swal.fire('Success','Order placed successfully','success')}else alert('Insufficient balance')})}
-function chSt(u,k,s){db.ref('all_orders/'+k+'/status').set(s);db.ref('user_orders/'+u+'/'+k+'/status').set(s);if(s==='Cancelled'){db.ref('all_orders/'+k).once('value',o=>{db.ref('users/'+u+'/balance').transaction(b=>(b||0)+o.val().price)})}}
-function uN(){db.ref('news').set(document.getElementById('newsInput').value)}
-function dN(){db.ref('news').remove()}
-</script>
-</body>
-</html>
+function chSt(u,k,s){db.ref('all_orders/'+k+'/status').set(s);db.ref('user_orders/'+u+'/'+k+'/status').set(s);if(s==='Cancelled'){db.ref('all_orders/'+k).once('value',o
