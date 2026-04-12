@@ -4,10 +4,9 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>TOM SMM PANEL ✅</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<!-- PWA APP ICON (Rocket Logo) -->
 <meta name="theme-color" content="#ff6600"><meta name="mobile-web-app-capable" content="yes">
 <link rel="apple-touch-icon" href="https://i.postimg.cc/qM9n7n9G/tom-logo.png">
-<link rel="manifest" href="data:application/manifest+json,{%22name%22:%22TOM%20SMM%20PANEL%22,%22short_name%22:%22TOM%20SMM%22,%22start_url%22:%22.%22,%22display%22:%22standalone%22,%22background_color%22:%22%23ffffff%22,%22theme_color%22:%22%23ff6600%22,%22icons%22:[{%22src%22:%22https://i.postimg.cc/qM9n7n9G/tom-logo.png%22,%22sizes%22:%22192x192%22,%22type%22:%22image/png%22},{%22src%22:%22https://i.postimg.cc/qM9n7n9G/tom-logo.png%22,%22sizes%22:%22512x512%22,%22type%22:%22image/png%22}]}">
+<link rel="manifest" href="data:application/manifest+json,{%22name%22:%22TOM%20SMM%22,%22short_name%22:%22TOM%22,%22start_url%22:%22index.html%22,%22display%22:%22standalone%22,%22background_color%22:%22%23ffffff%22,%22theme_color%22:%22%23ff6600%22,%22icons%22:[{%22src%22:%22https://i.postimg.cc/qM9n7n9G/tom-logo.png%22,%22sizes%22:%22192x192%22,%22type%22:%22image/png%22},{%22src%22:%22https://i.postimg.cc/qM9n7n9G/tom-logo.png%22,%22sizes%22:%22512x512%22,%22type%22:%22image/png%22}]}">
 <style>
 :root{--p:#ff6600;--bg:#f4f7f6;--s:#fff;--text:#333;--card:#fff;--border:#ffe0cc}
 body.dark-theme{--bg:#121212;--s:#1e1e1e;--text:#eee;--card:#1e1e1e;--border:#333}
@@ -37,15 +36,14 @@ table{width:100%;border-collapse:collapse;font-size:11px}th,td{padding:10px;text
 <div id="mobHead" class="mobile-header"><button onclick="tS()" style="background:#f60;color:#fff;border:none;padding:8px 12px;border-radius:5px">☰</button><b>TOM SMM ✅</b><button onclick="logout()" style="background:red;color:#fff;border:none;padding:8px;border-radius:5px;font-size:10px">EXIT</button></div>
 <div class="sidebar" id="sidebar"><h2 style="color:#f60">TOM SMM ✅</h2>
 <div class="nav-item" onclick="sP('neworder')">🛒 New Order</div><div class="nav-item" onclick="sP('history')">📜 My Orders</div><div class="nav-item" onclick="sP('funds')">💰 Add Funds</div><hr/>
-<div class="nav-item" id="installBtn" style="background:#fff5ed;color:#f60;border:1px dashed #f60;font-weight:700;cursor:pointer" onclick="installApp()">📲 Install Official App</div>
+<div class="nav-item" id="installBtn" style="background:#fff5ed;color:#f60;border:1px dashed #f60;font-weight:700;cursor:pointer;display:flex" onclick="installApp()">📲 Install Official App</div>
 <div class="nav-item" onclick="toggleTheme()" id="thBtn">🌙 Dark Mode</div><a class="nav-item" href="https://t.me/tomsmmmpanel" target="_blank">📢 Channel</a><a class="nav-item" href="https://t.me/t0m_00o" target="_blank" style="color:#f60">💬 Support</a>
 <div class="admin-only hidden"><hr/><p style="font-size:10px;color:#f60">ADMIN</p><div class="nav-item" onclick="sP('admin')">📊 Dashboard</div></div>
 <div class="nav-item" onclick="logout()" style="color:red;margin-top:auto">🚪 Logout</div>
 </div>
 <div class="main-content" style="padding:15px">
 <div id="newsDisplay" class="news-bar hidden"></div>
-<div class="card" style="background:#f60;color:#fff;display:flex;justify-content:space-between;border:none"><div><p style="margin:0;font-size:10px">Balance</p><h2 id="uBal" style="margin:0">₹ 0.00</h2></div>
-<div style="text-align:right"><p id="uEmail" style="margin:0;font-size:10px"></p><b id="uRole" style="font-size:10px">USER</b></div></div>
+<div class="card" style="background:#f60;color:#fff;display:flex;justify-content:space-between;border:none"><div><p style="margin:0;font-size:10px">Balance</p><h2 id="uBal" style="margin:0">₹ 0.00</h2></div><div style="text-align:right"><p id="uEmail" style="margin:0;font-size:10px"></p><b id="uRole" style="font-size:10px">USER</b></div></div>
 <div class="page" id="page_neworder"><div class="card"><h3>🛒 Order</h3><select id="catSelect" onchange="fS()"></select><select id="serviceSelect" onchange="uL()"></select><input id="orderLink" placeholder="Link 🔗"/><input id="orderQty" oninput="calcPrice()" placeholder="Qty 🔢" type="number"/><p id="totalPrice" style="color:#f60;font-weight:bold;text-align:center">₹ 0.00</p><button class="btn-primary" onclick="pO()">Submit 🚀</button></div></div>
 <div class="page hidden" id="page_admin"><div id="ownerOnly" class="hidden"><div class="card"><h3>🚨 System</h3><button onclick="setM(true)">Mnt ON</button><button onclick="setM(false)">Mnt OFF</button><hr/><input id="bcI" placeholder="Broadcast"/><button onclick="sendBC()">Send 📢</button></div>
 <div class="card"><h3>🛠 Add Service</h3><input id="s_cat" placeholder="Cat"/><input id="s_name" placeholder="Name"/><input id="s_api" placeholder="API ID"/><input id="s_price" placeholder="Price"/><input id="s_base" placeholder="Base"/><button onclick="aS()">Add</button></div>
@@ -59,7 +57,7 @@ const firebaseConfig={apiKey:"AIzaSyAj-7XMKfWERig_2L_Z_8K7AmH8cXPKYSM",authDomai
 firebase.initializeApp(firebaseConfig);const auth=firebase.auth(),db=firebase.database();let allS=[],myR='user',deferredPrompt;
 if('serviceWorker' in navigator){const sw="self.addEventListener('install',e=>self.skipWaiting());self.addEventListener('fetch',e=>e);";const blob=new Blob([sw],{type:'text/javascript'});navigator.serviceWorker.register(URL.createObjectURL(blob));}
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;});
-function installApp(){if(deferredPrompt){deferredPrompt.prompt();deferredPrompt.userChoice.then(r=>{deferredPrompt=null})}else{Swal.fire('Info','Please use Chrome Menu > Install App','info')}}
+function installApp(){if(deferredPrompt){deferredPrompt.prompt();deferredPrompt.userChoice.then(r=>{deferredPrompt=null})}else{window.location.reload();}}
 function toggleTheme(){document.body.classList.toggle('dark-theme');localStorage.setItem('theme',document.body.classList.contains('dark-theme')?'dark':'light')}
 if(localStorage.getItem('theme')==='dark')document.body.classList.add('dark-theme');
 function tA(l){document.getElementById('lF').classList.toggle('hidden',!l);document.getElementById('sF').classList.toggle('hidden',l)}
