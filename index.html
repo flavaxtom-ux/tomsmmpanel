@@ -9,8 +9,9 @@
 <meta name="theme-color" content="#ff6600">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<link rel="apple-touch-icon" href="https://api.qrserver.com/v1/create-qr-code/?size=192x192&data=TOM-SMM">
-<link rel="manifest" href="data:application/manifest+json,{%22name%22:%22TOM%20SMM%20PANEL%22,%22short_name%22:%22TOM%20SMM%22,%22start_url%22:%22index.html%22,%22display%22:%22standalone%22,%22background_color%22:%22%23ffffff%22,%22theme_color%22:%22%23ff6600%22,%22icons%22:[{%22src%22:%22https://api.qrserver.com/v1/create-qr-code/?size=192x192%26data=TOM-SMM%22,%22sizes%22:%22192x192%22,%22type%22:%22image/png%22}]}">
+<!-- Logo link for App Icon -->
+<link rel="apple-touch-icon" href="https://i.postimg.cc/qM9n7n9G/tom-logo.png">
+<link rel="manifest" href="data:application/manifest+json,{%22name%22:%22TOM%20SMM%20PANEL%22,%22short_name%22:%22TOM%20SMM%22,%22start_url%22:%22index.html%22,%22display%22:%22standalone%22,%22background_color%22:%22%23ffffff%22,%22theme_color%22:%22%23ff6600%22,%22icons%22:[{%22src%22:%22https://i.postimg.cc/qM9n7n9G/tom-logo.png%22,%22sizes%22:%22192x192%22,%22type%22:%22image/png%22}]}">
 
 <style>
 :root{--p:#ff6600;--bg:#f4f7f6;--s:#ffffff;--text:#333;--card:#fff;--border:#ffe0cc}
@@ -21,7 +22,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);mar
 .sidebar.active{left:0}
 .sidebar-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:2500;display:none}
 .sidebar-overlay.active{display:block}
-.mobile-header{background:var(--s);padding:15px;border-bottom:1px solid #ddd;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000}
+.mobile-header{background:var(--s);padding:10px 15px;border-bottom:1px solid #ddd;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000}
 .card{background:var(--card);padding:20px;border-radius:15px;box-shadow:0 4px 15px rgba(0,0,0,0.05);margin-bottom:20px;border:1px solid var(--border)}
 .btn-primary{background:var(--p);color:#fff;border:none;padding:12px;border-radius:10px;width:100%;cursor:pointer;font-weight:600}
 .btn-success{background:#22c55e!important;color:#fff!important;padding:6px 10px;border-radius:6px;border:none;cursor:pointer;font-size:11px}
@@ -29,6 +30,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);mar
 input,select{width:100%;padding:12px;margin:8px 0;border:1px solid #ffccaa;border-radius:10px;outline:none;box-sizing:border-box;background:transparent;color:inherit}
 table{width:100%;border-collapse:collapse;font-size:12px}
 th,td{padding:12px;text-align:left;border-bottom:1px solid #eee;word-break:break-word}
+.logo-img{width:180px; margin: 0 auto 15px auto; display:block;}
 .news-bar{background:#fff5ed;border:1px solid #f60;padding:12px;border-radius:12px;margin-bottom:20px;color:#f60;font-weight:600;text-align:center;animation:pulse 2s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,102,0,0.4)}70%{box-shadow:0 0 0 10px rgba(255,102,0,0)}100%{box-shadow:0 0 0 0 rgba(255,102,0,0)}}
 #mnt-scr{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--bg);z-index:9999;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
@@ -41,19 +43,25 @@ th,td{padding:12px;text-align:left;border-bottom:1px solid #eee;word-break:break
 <div id="mnt-scr" class="hidden"><h1>🛠 MAINTENANCE MODE</h1><p>We are updating the panel. Be back soon! 🚀</p></div>
 <div id="sidebarOverlay" class="sidebar-overlay" onclick="tS()"></div>
 
-<!-- AUTH -->
+<!-- AUTH PAGE -->
 <div id="authPage" style="display:flex;justify-content:center;align-items:center;height:100vh;padding:20px">
 <div class="card" style="width:100%;max-width:380px;text-align:center;border-top:5px solid #f60">
-<h2 style="color:#f60">TOM SMM PANEL ✅</h2>
+<!-- MAIN LOGO -->
+<img src="https://i.postimg.cc/qM9n7n9G/tom-logo.png" class="logo-img" alt="TOM SMM">
 <div id="lF"><input id="lU" placeholder="👤 Username/Email"/><input id="lP" placeholder="🔑 Pass" type="password"/><button class="btn-primary" onclick="hL()">Login 🚀</button><p onclick="tA(false)" style="cursor:pointer;font-size:11px;margin-top:15px">No account? Signup ✨</p></div>
 <div id="sF" class="hidden"><input id="rU" placeholder="👤 Username"/><input id="rE" placeholder="📧 Email"/><input id="rP" placeholder="🔑 Pass" type="password"/><button class="btn-primary" onclick="hS()">Signup ✨</button><p onclick="tA(true)" style="cursor:pointer;font-size:11px;margin-top:15px">Have account? Login 🚀</p></div>
 </div></div>
 
 <!-- MAIN APP -->
 <div class="hidden" id="mainApp">
-<div id="mobHead" class="mobile-header"><button onclick="tS()" style="background:#f60;color:#fff;border:none;padding:8px 15px;border-radius:8px">☰</button><b>TOM SMM ✅</b><button onclick="logout()" style="background:red;color:#fff;border:none;padding:8px 10px;border-radius:8px;font-size:10px">EXIT</button></div>
+<div id="mobHead" class="mobile-header">
+    <button onclick="tS()" style="background:#f60;color:#fff;border:none;padding:8px 15px;border-radius:8px">☰</button>
+    <img src="https://i.postimg.cc/qM9n7n9G/tom-logo.png" style="height:40px;" alt="TOM SMM">
+    <button onclick="logout()" style="background:red;color:#fff;border:none;padding:8px 10px;border-radius:8px;font-size:10px">EXIT</button>
+</div>
+
 <div class="sidebar" id="sidebar">
-<h2 style="color:#f60">TOM SMM ✅</h2>
+<img src="https://i.postimg.cc/qM9n7n9G/tom-logo.png" style="width:140px; margin: 0 auto 20px auto;" alt="TOM SMM">
 <div class="nav-item" onclick="sP('neworder')">🛒 New Order</div><div class="nav-item" onclick="sP('history')">📜 My Orders</div><div class="nav-item" onclick="sP('funds')">💰 Add Funds</div><hr/>
 <div class="nav-item" id="installBtn" style="display:none; background:#fff5ed; color:#f60; border:1px dashed #f60" onclick="installApp()">📲 Install Official App</div>
 <div class="nav-item" onclick="toggleTheme()" id="thBtn">🌙 Dark Mode</div><a class="nav-item" href="https://t.me/tomsmmmpanel" target="_blank">📢 Channel</a><a class="nav-item" href="https://t.me/t0m_00o" target="_blank" style="color:#f60">💬 Admin Support</a>
@@ -68,10 +76,9 @@ th,td{padding:12px;text-align:left;border-bottom:1px solid #eee;word-break:break
 <div style="text-align:right"><p id="uEmail" style="margin:0;font-size:10px"></p><b id="uRole" style="font-size:10px">USER</b></div>
 </div>
 
-<!-- NEW ORDER -->
+<!-- PAGES -->
 <div class="page" id="page_neworder"><div class="card"><h3>🛒 New Order</h3><select id="catSelect" onchange="fS()"></select><select id="serviceSelect" onchange="uL()"></select><div id="limitDisplay" style="font-size:10px;color:#f60;margin-bottom:5px">Min: 0 | Max: 0</div><input id="orderLink" placeholder="Link 🔗"/><input id="orderQty" oninput="calcPrice()" placeholder="Qty 🔢" type="number"/><div style="text-align:center;padding:10px;background:#fff5ed;border-radius:8px;margin:10px 0;border:1px dashed #f60;color:#333">Total: <b id="totalPrice" style="color:#f60">₹ 0.00</b></div><button class="btn-primary" onclick="pO()">Submit Order 🚀</button></div></div>
 
-<!-- ADMIN -->
 <div class="page hidden" id="page_admin">
 <div id="ownerOnly" class="hidden">
 <div class="card" style="border:2px solid red"><h3>🚨 System Control</h3><button class="btn-primary" style="background:#333;margin-bottom:5px" onclick="setM(true)">Enable Maintenance Mode</button><button class="btn-primary" style="background:green" onclick="setM(false)">Disable Maintenance Mode</button><hr/><input id="bcI" placeholder="Broadcast Message..."/><button class="btn-primary" onclick="sendBC()">Send Popup Broadcast 📢</button></div>
