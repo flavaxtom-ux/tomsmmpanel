@@ -5,12 +5,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<!-- PWA APP ICON SETTINGS (Only for Home Screen Icon) -->
+<!-- PWA SETTINGS -->
 <meta name="theme-color" content="#ff6600">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="https://i.postimg.cc/qM9n7n9G/tom-logo.png">
-<link rel="manifest" href="data:application/manifest+json,{%22name%22:%22TOM%20SMM%20PANEL%22,%22short_name%22:%22TOM%20SMM%22,%22start_url%22:%22index.html%22,%22display%22:%22standalone%22,%22background_color%22:%22%23ffffff%22,%22theme_color%22:%22%23ff6600%22,%22icons%22:[{%22src%22:%22https://i.postimg.cc/qM9n7n9G/tom-logo.png%22,%22sizes%22:%22192x192%22,%22type%22:%22image/png%22},{%22src%22:%22https://i.postimg.cc/qM9n7n9G/tom-logo.png%22,%22sizes%22:%22512x512%22,%22type%22:%22image/png%22}]}">
+<link rel="manifest" href="data:application/manifest+json,{%22name%22:%22TOM%20SMM%20PANEL%22,%22short_name%22:%22TOM%20SMM%22,%22start_url%22:%22index.html%22,%22display%22:%22standalone%22,%22background_color%22:%22%23ffffff%22,%22theme_color%22:%22%23ff6600%22,%22icons%22:[{%22src%22:%22https://i.postimg.cc/qM9n7n9G/tom-logo.png%22,%22sizes%22:%22192x192%22,%22type%22:%22image/png%22}]}">
 
 <style>
 :root{--p:#ff6600;--bg:#f4f7f6;--s:#ffffff;--text:#333;--card:#fff;--border:#ffe0cc}
@@ -55,7 +55,7 @@ th,td{padding:12px;text-align:left;border-bottom:1px solid #eee;word-break:break
 <div class="sidebar" id="sidebar">
 <h2 style="color:#f60">TOM SMM ✅</h2>
 <div class="nav-item" onclick="sP('neworder')">🛒 New Order</div><div class="nav-item" onclick="sP('history')">📜 My Orders</div><div class="nav-item" onclick="sP('funds')">💰 Add Funds</div><hr/>
-<div class="nav-item" id="installBtn" style="display:none; background:#fff5ed; color:#f60; border:1px dashed #f60" onclick="installApp()">📲 Install Official App</div>
+<div class="nav-item" id="installBtn" style="display:none; background:#fff5ed; color:#f60; border:1px dashed #f60; font-weight:bold" onclick="installApp()">📲 Install Official App</div>
 <div class="nav-item" onclick="toggleTheme()" id="thBtn">🌙 Dark Mode</div><a class="nav-item" href="https://t.me/tomsmmmpanel" target="_blank">📢 Channel</a><a class="nav-item" href="https://t.me/t0m_00o" target="_blank" style="color:#f60">💬 Admin Support</a>
 <div class="admin-only hidden"><hr/><p style="font-size:10px;color:#f60">ADMIN</p><div class="nav-item" onclick="sP('admin')">📊 Dashboard</div></div>
 <div class="nav-item" onclick="logout()" style="color:red;margin-top:auto">🚪 Logout</div>
@@ -68,10 +68,9 @@ th,td{padding:12px;text-align:left;border-bottom:1px solid #eee;word-break:break
 <div style="text-align:right"><p id="uEmail" style="margin:0;font-size:10px"></p><b id="uRole" style="font-size:10px">USER</b></div>
 </div>
 
-<!-- NEW ORDER -->
+<!-- PAGES -->
 <div class="page" id="page_neworder"><div class="card"><h3>🛒 New Order</h3><select id="catSelect" onchange="fS()"></select><select id="serviceSelect" onchange="uL()"></select><div id="limitDisplay" style="font-size:10px;color:#f60;margin-bottom:5px">Min: 0 | Max: 0</div><input id="orderLink" placeholder="Link 🔗"/><input id="orderQty" oninput="calcPrice()" placeholder="Qty 🔢" type="number"/><div style="text-align:center;padding:10px;background:#fff5ed;border-radius:8px;margin:10px 0;border:1px dashed #f60;color:#333">Total: <b id="totalPrice" style="color:#f60">₹ 0.00</b></div><button class="btn-primary" onclick="pO()">Submit Order 🚀</button></div></div>
 
-<!-- ADMIN -->
 <div class="page hidden" id="page_admin">
 <div id="ownerOnly" class="hidden">
 <div class="card" style="border:2px solid red"><h3>🚨 System Control</h3><button class="btn-primary" style="background:#333;margin-bottom:5px" onclick="setM(true)">Enable Maintenance Mode</button><button class="btn-primary" style="background:green" onclick="setM(false)">Disable Maintenance Mode</button><hr/><input id="bcI" placeholder="Broadcast Message..."/><button class="btn-primary" onclick="sendBC()">Send Popup Broadcast 📢</button></div>
@@ -94,22 +93,34 @@ const firebaseConfig={apiKey:"AIzaSyAj-7XMKfWERig_2L_Z_8K7AmH8cXPKYSM",authDomai
 firebase.initializeApp(firebaseConfig);const auth=firebase.auth(),db=firebase.database();
 let allS=[],myR='user';
 
-// INSTALL APP LOGIC
+// --- PWA INSTALL LOGIC (FIXED) ---
 let deferredPrompt;
+const installBtn = document.getElementById('installBtn');
+
+// Register Service Worker (Required for Install Button)
+if ('serviceWorker' in navigator) {
+    const swCode = "self.addEventListener('fetch', function(event) {});";
+    const blob = new Blob([swCode], {type: 'text/javascript'});
+    const url = URL.createObjectURL(blob);
+    navigator.serviceWorker.register(url);
+}
+
 window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
-    document.getElementById('installBtn').style.display = 'flex';
+    installBtn.style.display = 'flex'; // Show button when ready
 });
+
 function installApp() {
     if (deferredPrompt) {
         deferredPrompt.prompt();
         deferredPrompt.userChoice.then((choice) => {
-            if (choice.outcome === 'accepted') document.getElementById('installBtn').style.display = 'none';
+            if (choice.outcome === 'accepted') installBtn.style.display = 'none';
             deferredPrompt = null;
         });
     }
 }
+// ---------------------------------
 
 function toggleTheme(){document.body.classList.toggle('dark-theme');const isDark=document.body.classList.contains('dark-theme');localStorage.setItem('theme',isDark?'dark':'light');document.getElementById('thBtn').innerText=isDark?'☀️ Light Mode':'🌙 Dark Mode'}
 if(localStorage.getItem('theme')==='dark'){document.body.classList.add('dark-theme');}
